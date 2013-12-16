@@ -1,0 +1,29 @@
+<%= form_for(@spaceperson) do |f| %>
+  <% if @spaceperson.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@spaceperson.errors.count, "error") %> prohibited this spaceperson from being saved:</h2>
+
+      <ul>
+      <% @spaceperson.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :craft %><br>
+    <%= f.text_field :craft %>
+  </div>
+  <div class="field">
+    <%= f.label :Spacecraft_id %><br>
+    <%= f.text_field :Spacecraft_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
