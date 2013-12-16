@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @spaceperson.name %>
+</p>
+
+<p>
+  <strong>Craft:</strong>
+  <%= @spaceperson.craft %>
+</p>
+
+<p>
+  <strong>Spacecraft:</strong>
+  <%= @spaceperson.Spacecraft %>
+</p>
+
+<%= link_to 'Edit', edit_spaceperson_path(@spaceperson) %> |
+<%= link_to 'Back', spacepeople_path %>

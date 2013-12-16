@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131216031934) do
+ActiveRecord::Schema.define(version: 20131216033016) do
 
   create_table "delayed_jobs", force: true do |t|
     t.integer  "priority",   default: 0, null: false
@@ -47,6 +47,16 @@ ActiveRecord::Schema.define(version: 20131216031934) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "spacepeople", force: true do |t|
+    t.string   "name"
+    t.string   "craft"
+    t.integer  "Spacecraft_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "spacepeople", ["Spacecraft_id"], name: "index_spacepeople_on_Spacecraft_id"
 
   create_table "users", force: true do |t|
     t.string   "name"
