@@ -13,16 +13,21 @@ gem 'omniauth-google-oauth2'
 gem 'sendgrid'
 gem 'protected_attributes'
 gem 'httparty'
+gem 'delayed_job_active_record'
+gem 'geocoder'
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :rbx]
   gem 'quiet_assets'
   gem 'rails_layout'
 end
+
 group :development, :test do
   gem 'sqlite3'
   gem 'factory_girl_rails'
 end
+
 group :production do
   gem 'pg'
 end

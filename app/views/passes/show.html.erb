@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Risetime:</strong>
+  <%= @pass.risetime %>
+</p>
+
+<p>
+  <strong>Duration:</strong>
+  <%= @pass.duration %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @pass.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_pass_path(@pass) %> |
+<%= link_to 'Back', passes_path %>
