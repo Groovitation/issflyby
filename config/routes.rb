@@ -1,6 +1,6 @@
 Issflyby::Application.routes.draw do
-
-  resources :spacecrafts
+	resources :passes
+	resources :spacecrafts
 
 	root :to => 'application#index'
 	get '/auth/:provider/callback', to: 'sessions#create'

@@ -1,0 +1,31 @@
+<h1>Listing passes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Risetime</th>
+      <th>Duration</th>
+      <th>User</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @passes.each do |pass| %>
+      <tr>
+        <td><%= pass.risetime %></td>
+        <td><%= pass.duration %></td>
+        <td><%= pass.user_id %></td>
+        <td><%= link_to 'Show', pass %></td>
+        <td><%= link_to 'Edit', edit_pass_path(pass) %></td>
+        <td><%= link_to 'Destroy', pass, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Pass', new_pass_path %>

@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
-  attr_accessible :provider, :uid, :name, :email
+  attr_accessible :provider, :uid, :name, :email, :access_token :refresh_token
   validates_presence_of :name
+  has_many :flybys
 
   def self.create_with_omniauth(auth)
     create! do |user|
@@ -46,13 +47,17 @@ class User < ActiveRecord::Base
 
   def check_glass_location
     response = HTTParty.get('https://www.googleapis.com/mirror/v1/locations/latest', headers: { 'Content-Type' => 'application/json', 'Authorization' => 'Bearer '+self.access_token })
-    # TODO check properly for good response
-    if response['latitude'], Time.parse(response['timestamp']))
-      true
-      self.user.save
-    else
-      false
-    end
+    return [response['latitude'],response['longitude']]
+  end
+
+  def compare_location!
+    #call for glass location
+    location = self.check_glass_location
+
+    #TODO if new glass location is more than 10000m from database saved coordinates for user (geocoder gem)
+      #TODO destroy all passes for this user
+      #TODO get new passes for the user from NASA
+      #TODO save the new location in the database as the user's location
   end
   def self.check_flyby_time(lat,long)
     response = HTTParty.get('http://api.open-notify.org/iss-pass.json?lat='+ lat.to_s + '&lon=' + long.to_s)
