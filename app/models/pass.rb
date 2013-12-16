@@ -1,7 +1,8 @@
 class Pass < ActiveRecord::Base
 	attr_accessible :risetime, :duration, :user_id
-	after_create :schedule_notification
-	belongs_to :spacecraft, :user
+	after_create :schedule_notifications
+	belongs_to :spacecraft
+	belongs_to :user
 
 	def schedule_notifications
 		#TODO schedule a NotificationJob for an advance_notify x minutes prior to the pass, to give users time to organize

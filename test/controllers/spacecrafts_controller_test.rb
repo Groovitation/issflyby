@@ -2,7 +2,7 @@ require 'test_helper'
 
 class SpacecraftsControllerTest < ActionController::TestCase
   setup do
-    @spacecraft = spacecrafts(:one)
+    @spacecraft = FactoryGirl.create(:spacecraft)
   end
 
   test "should get index" do

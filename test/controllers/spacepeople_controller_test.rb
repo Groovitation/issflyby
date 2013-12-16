@@ -2,7 +2,7 @@ require 'test_helper'
 
 class SpacepeopleControllerTest < ActionController::TestCase
   setup do
-    @spaceperson = spacepeople(:one)
+    @spaceperson = FactoryGirl.create(:spaceperson)
   end
 
   test "should get index" do
