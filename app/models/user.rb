@@ -28,9 +28,8 @@ class User < ActiveRecord::Base
     return false
   end
 
-  def send_glass_card(card = Hash.new,ding = false,event = nil)
-    card[:text] ||= "ISS flyby"
-    card[:bundleId] = "ISS flyby"
+  def send_glass_card(card = Hash.new,ding = true)
+    card[:bundleId] = "iss_flyby"
     card[:notification] = {level:"DEFAULT"} if ding
     card[:menuItems] = [{action:"DELETE"},{action:"SHARE"},{action:"TOGGLE_PINNED"}]
 
