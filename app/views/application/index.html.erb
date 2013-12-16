@@ -1,4 +1,7 @@
-<%= current_user %>
-
-
 <h1>ISS Flyby!</h1>
+
+<% if current_user %>
+	<p>You're signed in with Google. Next time the ISS goes overhead, you'll know about it!</p>
+<% else %>
+	<p><%= link_to 'log in with Google', sign_in_path %></p>
+<% end %>
