@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :provider, :uid, :name, :email, :access_token :refresh_token
+  attr_accessible :provider, :uid, :name, :email, :access_token, :refresh_token
   validates_presence_of :name
   has_many :flybys
 
