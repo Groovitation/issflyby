@@ -1,0 +1,33 @@
+<%= form_for(@spacecraft) do |f| %>
+  <% if @spacecraft.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@spacecraft.errors.count, "error") %> prohibited this spacecraft from being saved:</h2>
+
+      <ul>
+      <% @spacecraft.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :crew %><br>
+    <%= f.number_field :crew %>
+  </div>
+  <div class="field">
+    <%= f.label :lat %><br>
+    <%= f.text_field :lat %>
+  </div>
+  <div class="field">
+    <%= f.label :long %><br>
+    <%= f.text_field :long %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

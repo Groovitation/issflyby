@@ -1,0 +1,33 @@
+<h1>Listing spacecrafts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Crew</th>
+      <th>Lat</th>
+      <th>Long</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @spacecrafts.each do |spacecraft| %>
+      <tr>
+        <td><%= spacecraft.name %></td>
+        <td><%= spacecraft.crew %></td>
+        <td><%= spacecraft.lat %></td>
+        <td><%= spacecraft.long %></td>
+        <td><%= link_to 'Show', spacecraft %></td>
+        <td><%= link_to 'Edit', edit_spacecraft_path(spacecraft) %></td>
+        <td><%= link_to 'Destroy', spacecraft, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Spacecraft', new_spacecraft_path %>

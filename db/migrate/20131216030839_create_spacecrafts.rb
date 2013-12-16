@@ -5,7 +5,6 @@ class CreateSpacecrafts < ActiveRecord::Migration
       t.integer :crew
       t.float :lat
       t.float :long
-      t.datetime :updated
 
       t.timestamps
     end

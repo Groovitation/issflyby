@@ -6,6 +6,5 @@ FactoryGirl.define do
     crew 1
     lat 1.5
     long 1.5
-    updated "2013-12-15 20:36:17"
   end
 end
