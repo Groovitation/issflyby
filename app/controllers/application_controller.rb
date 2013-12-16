@@ -30,4 +30,7 @@ class ApplicationController < ActionController::Base
       end
     end
 
+    def index
+      
+    end 
 end
