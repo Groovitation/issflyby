@@ -54,5 +54,9 @@ class User < ActiveRecord::Base
       false
     end
   end
+  def self.check_flyby_time(lat,long)
+    response = HTTParty.get('http://api.open-notify.org/iss-pass.json?lat='+ lat.to_s + '&lon=' + long.to_s)
+    puts response
+  end
 
 end
