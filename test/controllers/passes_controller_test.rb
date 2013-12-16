@@ -2,7 +2,7 @@ require 'test_helper'
 
 class PassesControllerTest < ActionController::TestCase
   setup do
-    @pass = passes(:one)
+    @pass = FactoryGirl.create(:pass)
   end
 
   test "should get index" do
