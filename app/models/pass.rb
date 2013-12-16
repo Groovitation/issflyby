@@ -17,6 +17,9 @@ class Pass < ActiveRecord::Base
 	def passing_notify
 		if weather_permitting
 			self.user.send_glass_card({text:self.spacecraft.name+" is passing over right now!"})
+			self.spacecraft.spacepeople.each do |sp|
+				self.user.send_glass_card({text:sp.name+" is on board"})
+			end
 		end
 	end	
 
