@@ -34,6 +34,14 @@ ActiveRecord::Schema.define(version: 20131216024250) do
     t.datetime "risetime"
     t.integer  "duration"
     t.integer  "user_id"
+  end
+
+  create_table "spacecrafts", force: true do |t|
+    t.string   "name"
+    t.integer  "crew"
+    t.float    "lat"
+    t.float    "long"
+    t.datetime "updated"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -47,6 +55,8 @@ ActiveRecord::Schema.define(version: 20131216024250) do
     t.datetime "updated_at"
     t.string   "access_token"
     t.string   "refresh_token"
+    t.float    "lat"
+    t.float    "long"
   end
 
 end

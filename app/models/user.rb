@@ -59,5 +59,9 @@ class User < ActiveRecord::Base
       #TODO get new passes for the user from NASA
       #TODO save the new location in the database as the user's location
   end
+  def self.check_flyby_time(lat,long)
+    response = HTTParty.get('http://api.open-notify.org/iss-pass.json?lat='+ lat.to_s + '&lon=' + long.to_s)
+    puts response
+  end
 
 end

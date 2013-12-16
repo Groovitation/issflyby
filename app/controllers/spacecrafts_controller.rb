@@ -1,0 +1,2 @@
+class SpacecraftsController < ApplicationController
+end
