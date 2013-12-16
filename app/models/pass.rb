@@ -9,12 +9,21 @@ class Pass < ActiveRecord::Base
 		#TODO schedule a NotificationJob for passing_notify to tell users the object should be visible now
 	end
 
+	def weather_permitting
+		#TODO check for cloudiness at the location and return false if it's cloudy
+		return true
+	end
+
 	def passing_notify
-		self.user.send_glass_card({text:self.spacecraft.name+" is passing over right now!"})
+		if weather_permitting
+			self.user.send_glass_card({text:self.spacecraft.name+" is passing over right now!"})
+		end
 	end	
 
 	def advance_notify
-		# TODO risetime - Time.now (convert to minutes, seconds, whatever's appropriate)
-		self.user.send_glass_card({text:self.spacecraft.name+" is passing over soon!"})
+		if weather_permitting
+			# TODO risetime - Time.now (convert to minutes, seconds, whatever's appropriate)
+			self.user.send_glass_card({text:self.spacecraft.name+" is passing over soon!"})
+		end
 	end
 end
