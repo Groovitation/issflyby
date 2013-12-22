@@ -1,6 +1,8 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    RubySunrise (0.3)
+      tzinfo
     actionmailer (4.0.1)
       actionpack (= 4.0.1)
       mail (~> 2.5.4)
@@ -159,6 +161,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  RubySunrise
   better_errors
   binding_of_caller
   coffee-rails (~> 4.0.0)

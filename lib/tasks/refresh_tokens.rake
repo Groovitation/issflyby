@@ -3,7 +3,7 @@ task :refresh_tokens => :environment do
   #Google        
     Authorization.where(provider:"google_oauth2").each do |g|
       begin
-              g.refresh_access_token("https://accounts.google.com/o/oauth2/token",GOOGLE_KEY,GOOGLE_SECRET)
+              g.refresh_access_token("https://accounts.google.com/o/oauth2/token",ENV['OMNIAUTH_PROVIDER_KEY'],ENV['OMNIAUTH_PROVIDER_SECRET'])
       rescue
       end
     end

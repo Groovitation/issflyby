@@ -15,6 +15,7 @@ gem 'protected_attributes'
 gem 'httparty'
 gem 'delayed_job_active_record'
 gem 'geocoder'
+gem 'RubySunrise'
 
 group :development do
   gem 'better_errors'
