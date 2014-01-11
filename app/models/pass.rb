@@ -15,12 +15,10 @@ class Pass < ActiveRecord::Base
 		require 'SolarEventCalculator'
 		if self.user.lat && self.user.long
 			# Check to make sure the sun is positioned correctly and return false if not
-				# TODO still doesn't take time zones into account. Currently all-UTC.
 	    		calc = SolarEventCalculator.new(Date.today, self.user.lat, self.user.long)
 	    		sunrise = calc.compute_utc_civil_sunrise
 	    		sunrise_comparison = (sunrise.to_f - self.risetime.to_f)
 	    		sunset = calc.compute_utc_civil_sunset
-	    		# timezone = Timezone::Zone.new :latlon => [timezone = Timezone::Zone.new :latlon => [self.user.lat, self.user.long]]
 	    		sunset_comparison = (self.risetime.to_f - sunset.to_f)
 	    		unless (sunrise_comparison < 30.minutes && sunrise_comparison > 0) || (sunset_comparison < 30.minutes && sunset_comparison > 0) 
 	    			return false
