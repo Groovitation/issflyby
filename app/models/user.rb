@@ -47,8 +47,12 @@ class User < ActiveRecord::Base
   end
 
   def check_glass_location
-    response = HTTParty.get('https://www.googleapis.com/mirror/v1/locations/latest', headers: { 'Content-Type' => 'application/json', 'Authorization' => 'Bearer '+self.access_token })
-    return [response['latitude'],response['longitude']]
+    begin
+      response = HTTParty.get('https://www.googleapis.com/mirror/v1/locations/latest', headers: { 'Content-Type' => 'application/json', 'Authorization' => 'Bearer '+self.access_token })
+      return [response['latitude'],response['longitude']]
+    rescue
+      # puts "couldn't get glass location"
+    end
   end
 
   def compare_location!
