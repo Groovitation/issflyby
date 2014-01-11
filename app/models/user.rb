@@ -61,14 +61,17 @@ class User < ActiveRecord::Base
       #destroy all passes for this user
       self.passes.destroy_all
       #get new passes for the user from NASA
-      
+
       #TODO save the new location in the database as the user's location
       self.update(lat: location[0], long: location[1])
     end
   end
-  def self.check_flyby_time(lat,long)
-    response = HTTParty.get('http://api.open-notify.org/iss-pass.json?lat='+ lat.to_s + '&lon=' + long.to_s)
+  def check_flyby_time
+    response = HTTParty.get('http://api.open-notify.org/iss-pass.json?lat='+ self.lat.to_s + '&lon=' + self.long.to_s)['response']
     puts response
+    response.each do |pass|
+      Pass.create( risetime: pass['risetime'], duration: pass['duration'], user_id: self.id)
+    end
   end
 
 end
