@@ -13,7 +13,6 @@ gem 'omniauth-google-oauth2'
 gem 'sendgrid'
 gem 'protected_attributes'
 gem 'httparty'
-gem 'delayed_job_active_record'
 gem 'geocoder'
 gem 'RubySunrise'
 
