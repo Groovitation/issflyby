@@ -15,10 +15,9 @@ class Pass < ActiveRecord::Base
 		if self.user.lat && self.user.long
 			# Check to make sure the sun is positioned correctly and return false if not
 				require 'sun_times'
-	    		calc = SolarEventCalculator.new(Date.today, self.user.lat, self.user.long)
-	    		sunrise = calc.compute_utc_civil_sunrise
+	    		sunrise = SunTimes.rise(Date.today, self.user.lat, self.user.long)
 	    		sunrise_comparison = (sunrise.to_f - self.risetime.to_f)
-	    		sunset = calc.compute_utc_civil_sunset
+	    		sunset = SunTimes.set(Date.today, self.user.lat, self.user.long)
 	    		sunset_comparison = (self.risetime.to_f - sunset.to_f)
 	    		unless (sunrise_comparison < 30.minutes && sunrise_comparison > 0) || (sunset_comparison < 30.minutes && sunset_comparison > 0) 
 	    			return false
