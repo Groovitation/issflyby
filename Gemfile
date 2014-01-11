@@ -15,7 +15,6 @@ gem 'protected_attributes'
 gem 'httparty'
 gem 'geocoder'
 gem 'RubySunrise'
-gem 'timezone'
 
 group :development do
   gem 'better_errors'
