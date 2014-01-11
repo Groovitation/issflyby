@@ -3,7 +3,8 @@ class User < ActiveRecord::Base
   validates_presence_of :name
   has_many :passes
   after_create :compare_location!
-
+  require 'geocoder'
+  reverse_geocoded_by :lat, :long
   def self.create_with_omniauth(auth)
     create! do |user|
       user.provider = auth['provider']
@@ -49,16 +50,18 @@ class User < ActiveRecord::Base
   def check_glass_location
     response = HTTParty.get('https://www.googleapis.com/mirror/v1/locations/latest', headers: { 'Content-Type' => 'application/json', 'Authorization' => 'Bearer '+self.access_token })
     return [response['latitude'],response['longitude']]
+
   end
 
   def compare_location!
     #call for glass location
     location = self.check_glass_location
-
+    puts self.distance_from(location) # distance from arbitrary point to object
     #TODO if new glass location is more than 10000m from database saved coordinates for user (geocoder gem) OR user has no saved location
       #TODO destroy all passes for this user
       #TODO get new passes for the user from NASA
       #TODO save the new location in the database as the user's location
+      self.update(lat: location[0], long: location[1])
   end
   def self.check_flyby_time(lat,long)
     response = HTTParty.get('http://api.open-notify.org/iss-pass.json?lat='+ lat.to_s + '&lon=' + long.to_s)
