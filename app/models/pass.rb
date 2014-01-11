@@ -30,20 +30,20 @@ class Pass < ActiveRecord::Base
 		end
 	end
 
-	def passing_notify
-		if conditions_permit
-			self.user.send_glass_card({text:self.spacecraft.name+" is passing over right now!",isBundleCover:true})
-			# TODO delete advance_notify card
-			self.spacecraft.spacepeople.each do |sp|
-				self.user.send_glass_card({text:sp.name+" is on board",isBundleCover:false},false)
-			end
-		end
-	end	
+	# def passing_notify
+	# 	if conditions_permit
+	# 		self.user.send_glass_card({text:self.spacecraft.name+" is passing over right now! "+pass.risetime.toString,isBundleCover:true})
+	# 		# TODO delete advance_notify card
+	# 	end
+	# end	
 
 	def advance_notify
 		if conditions_permit
 			# TODO risetime - Time.now (convert to minutes, seconds, whatever's appropriate)
-			self.user.send_glass_card({text:self.spacecraft.name+" is passing over soon!",isBundleCover:true})
+			self.user.send_glass_card({text:self.spacecraft.name+" is passing over soon! "+pass.risetime.toString,isBundleCover:true})
+			self.spacecraft.spacepeople.each do |sp|
+				self.user.send_glass_card({text:sp.name+" is on board",isBundleCover:false},false)
+			end
 		end
 	end
 end
