@@ -2,8 +2,8 @@
 
 FactoryGirl.define do
   factory :pass do
-    risetime "2013-12-15 20:41:28"
+    risetime Time.now
     duration 1
-    user_id 1
+    association :user
   end
 end

@@ -15,6 +15,7 @@ gem 'protected_attributes'
 gem 'httparty'
 gem 'geocoder'
 gem 'RubySunrise'
+gem 'timezone'
 
 group :development do
   gem 'better_errors'
@@ -26,6 +27,10 @@ end
 group :development, :test do
   gem 'sqlite3'
   gem 'factory_girl_rails'
+end
+
+group :test do
+  gem 'mocha', require: false
 end
 
 group :production do
