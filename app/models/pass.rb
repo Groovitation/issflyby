@@ -14,10 +14,10 @@ class Pass < ActiveRecord::Base
 	def sun_permits
 		if self.user.lat && self.user.long
 			# Check to make sure the sun is positioned correctly and return false if not
-				require 'sun_times'
-	    		sunrise = SunTimes.rise(Date.today, self.user.lat, self.user.long)
+				# require 'sun_times'
+	    		sunrise = SunTimes.new.rise(Date.today, self.user.lat, self.user.long)
 	    		sunrise_comparison = (sunrise.to_f - self.risetime.to_f)
-	    		sunset = SunTimes.set(Date.today, self.user.lat, self.user.long)
+	    		sunset = SunTimes.new.set(Date.today, self.user.lat, self.user.long)
 	    		sunset_comparison = (self.risetime.to_f - sunset.to_f)
 	    		unless (sunrise_comparison < 30.minutes && sunrise_comparison > 0) || (sunset_comparison < 30.minutes && sunset_comparison > 0) 
 	    			return false

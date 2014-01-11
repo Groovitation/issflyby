@@ -5,7 +5,7 @@ class PassTest < ActiveSupport::TestCase
     arlington_user = FactoryGirl.create(:user,lat:32.705033,long:-97.122839)
 
     assert_difference "Pass.count" do
-    	FactoryGirl.create(:pass,risetime:DateTime.new(2014,01,11,13,0,0,0),user_id:arlington_user.id)
+    	FactoryGirl.create(:pass,risetime:DateTime.new(2014,01,11,13,5,0,0),user_id:arlington_user.id)
     end
   end
 
