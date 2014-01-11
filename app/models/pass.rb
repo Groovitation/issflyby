@@ -1,14 +1,7 @@
 class Pass < ActiveRecord::Base
 	attr_accessible :risetime, :duration, :user_id
-	after_create :schedule_notifications
 	belongs_to :spacecraft
 	belongs_to :user
-
-	def schedule_notifications
-		#TODO schedule a NotificationJob for an advance_notify x minutes prior to the pass, to give users time to organize
-		#TODO schedule a NotificationJob for passing_notify to tell users the object should be visible now
-		#TODO schedule a job for deleting the cards when the pass is complete. It will be necessary to store the card's ID returned in reply to the card's mirror API post
-	end
 
 	def conditions_permit
 		require 'SolarEventCalculator'
@@ -30,6 +23,7 @@ class Pass < ActiveRecord::Base
 		end
 	end
 
+	# iced because it doesn't work well with check_passes.rake
 	# def passing_notify
 	# 	if conditions_permit
 	# 		self.user.send_glass_card({text:self.spacecraft.name+" is passing over right now! "+pass.risetime.toString,isBundleCover:true})
