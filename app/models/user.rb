@@ -71,7 +71,7 @@ class User < ActiveRecord::Base
     end
   end
   def check_flyby_time
-    response = HTTParty.get('http://api.open-notify.org/iss-pass.json?lat='+ self.lat.to_s + '&lon=' + self.long.to_s)['response']
+    response = HTTParty.get('http://api.open-notify.org/iss-pass.json?lat='+ self.lat.to_s + '&lon=' + self.long.to_s + "&n=5")['response']
     response.each do |pass|
       Pass.create( risetime: pass['risetime'], duration: pass['duration'], user_id: self.id)
     end
