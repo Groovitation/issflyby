@@ -56,7 +56,8 @@ class User < ActiveRecord::Base
   def compare_location!
     #call for glass location
     location = self.check_glass_location
-    puts self.distance_from(location) # distance from arbitrary point to object
+    puts location
+    puts self.distance_from(location, :km) # distance from arbitrary point to object
     #TODO if new glass location is more than 10000m from database saved coordinates for user (geocoder gem) OR user has no saved location
       #TODO destroy all passes for this user
       #TODO get new passes for the user from NASA
