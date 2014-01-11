@@ -12,7 +12,6 @@ class Pass < ActiveRecord::Base
 	end
 
 	def sun_permits
-		require 'SolarEventCalculator'
 		if self.user.lat && self.user.long
 			# Check to make sure the sun is positioned correctly and return false if not
 	    		calc = SolarEventCalculator.new(Date.today, self.user.lat, self.user.long)
