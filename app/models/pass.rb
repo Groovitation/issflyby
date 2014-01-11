@@ -14,7 +14,7 @@ class Pass < ActiveRecord::Base
 	def sun_permits
 		if self.user.lat && self.user.long
 			# Check to make sure the sun is positioned correctly and return false if not
-				require 'SolarEventCalculator'
+				require 'sun_times'
 	    		calc = SolarEventCalculator.new(Date.today, self.user.lat, self.user.long)
 	    		sunrise = calc.compute_utc_civil_sunrise
 	    		sunrise_comparison = (sunrise.to_f - self.risetime.to_f)

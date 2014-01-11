@@ -14,7 +14,7 @@ gem 'sendgrid'
 gem 'protected_attributes'
 gem 'httparty'
 gem 'geocoder'
-gem 'RubySunrise'
+gem 'ruby-sun-times', require: 'sun_times'
 
 group :development do
   gem 'better_errors'
