@@ -2,7 +2,7 @@
 ISS Flyby
 ========
 
-ISS flyby notifier for Google Glass
+International Space Station flyby notifier for Google Glass
 
 Rails, Mirror API
 
