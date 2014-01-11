@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   require 'geocoder'
   reverse_geocoded_by :lat, :long
   def self.create_with_omniauth(auth)
-    create! do |user|
+   where(auth.slice(:provider, :uid)).first_or_create do |user|
       user.provider = auth['provider']
       user.uid = auth['uid']
       user.access_token = auth['credentials']['token']
@@ -59,14 +59,15 @@ class User < ActiveRecord::Base
   def compare_location!
     #call for glass location
     location = self.check_glass_location
+    distance = self.distance_from(location)
     #if new glass location is more than 10000m from database saved coordinates for user (geocoder gem) OR user has no saved location
-    if self.distance_from(location, :km) > 10 || self.latitude.nil?
+    if self.lat.blank? || distance > 1000
+      #save the new location in the database as the user's location
+      self.update(lat: location[0], long: location[1])
       #destroy all passes for this user
-      self.passes.destroy_all
+      Pass.where(user_id: self.id).delete_all
       #get new passes for the user from NASA
       self.check_flyby_time
-      #TODO save the new location in the database as the user's location
-      self.update(lat: location[0], long: location[1])
     end
   end
   def check_flyby_time
