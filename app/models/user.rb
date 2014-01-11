@@ -2,11 +2,11 @@ class User < ActiveRecord::Base
   attr_accessible :provider, :uid, :name, :email, :access_token, :refresh_token, :lat, :long
   validates_presence_of :name
   has_many :passes
-  after_create :compare_location!
+  # after_create :compare_location!
   require 'geocoder'
   reverse_geocoded_by :lat, :long
   def self.create_with_omniauth(auth)
-    create! do |user|
+   where(auth.slice(:provider, :uid)).first_or_create do |user|
       user.provider = auth['provider']
       user.uid = auth['uid']
       user.access_token = auth['credentials']['token']
@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
         user.email = auth['info']['email'] || ""
       end
     end
+    puts user
   end
 
   def refresh_access_token(uri,client_id,client_secret)
@@ -56,8 +57,9 @@ class User < ActiveRecord::Base
   def compare_location!
     #call for glass location
     location = self.check_glass_location
+    distance = self.distance_from(location, :km)
     #if new glass location is more than 10000m from database saved coordinates for user (geocoder gem) OR user has no saved location
-    if self.distance_from(location, :km) > 1000 || self.latitude.blank?
+    if distance > 1000 || self.latitude.blank?
       #destroy all passes for this user
       self.passes.destroy_all
       #get new passes for the user from NASA
