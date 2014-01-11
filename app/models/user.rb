@@ -61,14 +61,14 @@ class User < ActiveRecord::Base
     location = self.check_glass_location
     distance = self.distance_from(location)
     #TODO if new glass location is more than 10000m from database saved coordinates for user (geocoder gem) OR user has no saved location
-     # if self.lat.blank? || distance > 1000
+      if self.lat.blank? || distance > 1000
       #save the new location in the database as the user's location
       self.update(lat: location[0], long: location[1])
       #destroy all passes for this user
       Pass.where(user_id: self.id).delete_all
       #get new passes for the user from NASA
       self.check_flyby_time
-     # end
+      end
   end
   def check_flyby_time
     response = HTTParty.get('http://api.open-notify.org/iss-pass.json?lat='+ self.lat.to_s + '&lon=' + self.long.to_s + "&n=5")['response']
