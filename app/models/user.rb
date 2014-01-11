@@ -61,7 +61,7 @@ class User < ActiveRecord::Base
       #destroy all passes for this user
       self.passes.destroy_all
       #get new passes for the user from NASA
-
+      self.check_flyby_time
       #TODO save the new location in the database as the user's location
       self.update(lat: location[0], long: location[1])
     end
