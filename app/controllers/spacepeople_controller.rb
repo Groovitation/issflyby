@@ -69,6 +69,6 @@ class SpacepeopleController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def spaceperson_params
-      params.require(:spaceperson).permit(:name, :craft, :Spacecraft_id)
+      params.require(:spaceperson).permit(:name, :craft, :spacecraft_id)
     end
 end
