@@ -20,7 +20,6 @@ class Pass < ActiveRecord::Base
 	    		sunset = SunTimes.new.set(Date.today, self.user.lat, self.user.long)
 	    		sunset_comparison = (self.risetime.to_f - sunset.to_f)
 	    		unless (sunrise_comparison < 12.hours && sunrise_comparison > 0) || (sunset_comparison < 12.hours && sunset_comparison > 0) 
-	    			puts "wrong time"
 	    			return false
 	    		end
 			return true
