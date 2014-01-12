@@ -38,9 +38,13 @@ class Pass < ActiveRecord::Base
 
 	def advance_notify
 		if weather_permits
-			self.user.send_glass_card({text:self.spacecraft.name+" is passing over soon! "+pass.risetime.toString,isBundleCover:true})
-			self.spacecraft.spacepeople.each do |sp|
-				self.user.send_glass_card({text:sp.name+" is on board",isBundleCover:false},false)
+			# TODO restructure for multiple space objects
+				# self.user.send_glass_card({text:self.spacecraft.name+" is passing over soon! "+pass.risetime.toString,isBundleCover:true})
+			self.user.send_glass_card({text:"ISS is passing over soon! "+pass.risetime.to_s,isBundleCover:true})
+			if self.spacecraft 
+				self.spacecraft.spacepeople.each do |sp|
+					self.user.send_glass_card({text:sp.name+" is on board",isBundleCover:false},false)
+				end
 			end
 		end
 	end
