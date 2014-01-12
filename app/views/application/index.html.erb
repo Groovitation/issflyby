@@ -1,7 +1,17 @@
 <h1>ISS Flyby!</h1>
 
 <% if current_user %>
-	<p>You're signed in with Google. Next time the ISS goes overhead, you'll know about it!</p>
+	<p style="color:green">Signed in with Google.</p>
+		<% if current_user.passes.count == 0 %>
+			<p>The next 100 passes overhead won't be visible with the naked eye. We'll keep looking and notify you via Glass!</p>
+		<% else %>
+			<h3>Upcoming passes:</h3>
+			<ul>	
+			<% current_user.passes.each do |pass| %>
+				<li><%= pass.risetime.to_s %></li>
+			<% end %>
+			</ul>
+		<% end %>
 <% else %>
 	<p><%= link_to 'log in with Google', sign_in_path %></p>
 <% end %>
