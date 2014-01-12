@@ -18,7 +18,7 @@ class SpacepeopleControllerTest < ActionController::TestCase
 
   test "should create spaceperson" do
     assert_difference('Spaceperson.count') do
-      post :create, spaceperson: { Spacecraft_id: @spaceperson.Spacecraft_id, craft: @spaceperson.craft, name: @spaceperson.name }
+      post :create, spaceperson: { spacecraft_id: @spaceperson.spacecraft_id, craft: @spaceperson.craft, name: @spaceperson.name }
     end
 
     assert_redirected_to spaceperson_path(assigns(:spaceperson))
@@ -35,7 +35,7 @@ class SpacepeopleControllerTest < ActionController::TestCase
   end
 
   test "should update spaceperson" do
-    patch :update, id: @spaceperson, spaceperson: { Spacecraft_id: @spaceperson.Spacecraft_id, craft: @spaceperson.craft, name: @spaceperson.name }
+    patch :update, id: @spaceperson, spaceperson: { spacecraft_id: @spaceperson.spacecraft_id, craft: @spaceperson.craft, name: @spaceperson.name }
     assert_redirected_to spaceperson_path(assigns(:spaceperson))
   end
 

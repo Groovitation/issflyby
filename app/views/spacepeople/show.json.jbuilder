@@ -1,1 +1,1 @@
-json.extract! @spaceperson, :id, :name, :craft, :Spacecraft_id, :created_at, :updated_at
+json.extract! @spaceperson, :id, :name, :craft, :spacecraft_id, :created_at, :updated_at

@@ -4,6 +4,5 @@ FactoryGirl.define do
   factory :spaceperson do
     name "MyString"
     craft "MyString"
-    Spacecraft nil
   end
 end
