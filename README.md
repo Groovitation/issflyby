@@ -2,6 +2,8 @@
 ISS Flyby
 ========
 
+live at issflyby.herokuapp.com
+
 International Space Station flyby notifier for Google Glass
 
 Rails, Mirror API
