@@ -13,4 +13,8 @@ class Spacecraft < ActiveRecord::Base
     iss = Spacecraft.find_or_create_by(name: 'ISS')
     iss.update(lat:location['iss_position']['latitude'], long: location['iss_position']['latitude'])
   end
+
+  def fire_laser(lat,lon,intensity)
+    #TODO space laser at any place on Earth
+  end
 end
