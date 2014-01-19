@@ -26,6 +26,11 @@ end
 group :development, :test do
   gem 'sqlite3'
   gem 'factory_girl_rails'
+  gem 'cucumber-rails', :require => false
+  # database_cleaner is not required, but highly recommended
+  gem 'database_cleaner'
+  gem 'rspec-rails'
+  gem 'capybara'
 end
 
 group :test do
