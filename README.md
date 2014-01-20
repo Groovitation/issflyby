@@ -2,6 +2,8 @@
 ISS Flyby
 ========
 
+**Sends users notifications to Google Glass when the ISS will be visible overhead soon.**
+
 live at issflyby.herokuapp.com
 
 International Space Station flyby notifier for Google Glass
