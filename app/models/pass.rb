@@ -15,11 +15,13 @@ class Pass < ActiveRecord::Base
 		if self.user.lat && self.user.long
 			# Check to make sure the sun is positioned correctly and return false if not
 				# require 'sun_times'
-	    		sunrise = SunTimes.new.rise(Date.today, self.user.lat, self.user.long)
+          rise = Time.at(self.risetime)
+          rise_date = Date.new(rise.year,rise.month,rise.day)
+	    		sunrise = SunTimes.new.rise(rise_date, self.user.lat, self.user.long)
 	    		sunrise_comparison = (sunrise.to_f - self.risetime.to_f)
-	    		sunset = SunTimes.new.set(Date.today, self.user.lat, self.user.long)
+	    		sunset = SunTimes.new.set(rise_date, self.user.lat, self.user.long)
 	    		sunset_comparison = (self.risetime.to_f - sunset.to_f)
-	    		unless (sunrise_comparison < 30.minutes && sunrise_comparison > 0) || (sunset_comparison < 30.minutes && sunset_comparison > 0) 
+	    		unless (sunrise_comparison < 45.minutes && sunrise_comparison > 0) || (sunset_comparison < 45.minutes && sunset_comparison > 0)
 	    			return false
 	    		end
 			return true

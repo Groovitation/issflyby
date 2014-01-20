@@ -1,10 +1,11 @@
 class User < ActiveRecord::Base
   attr_accessible :provider, :uid, :name, :email, :access_token, :refresh_token, :lat, :long
-  validates_presence_of :name
+  #validates_presence_of :name
   has_many :passes
-  after_create :compare_location!
+  #after_create :compare_location!
   require 'geocoder'
   reverse_geocoded_by :lat, :long
+
   def self.create_with_omniauth(auth)
    where(auth.slice(:provider, :uid)).first_or_create do |user|
       user.provider = auth['provider']
@@ -70,6 +71,7 @@ class User < ActiveRecord::Base
       self.check_flyby_time
       end
   end
+
   def check_flyby_time
     response = HTTParty.get('http://api.open-notify.org/iss-pass.json?lat='+ self.lat.to_s + '&lon=' + self.long.to_s + "&n=100")['response']
     response.each do |pass|

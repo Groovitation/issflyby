@@ -6,7 +6,7 @@ FactoryGirl.define do
     email "MyString"
     provider "MyString"
     uid "MyString"
-    sequence(:lat) { (Random.new.rand(-180000...180000).to_f * 0.0001) }
-    sequence(:long) { (Random.new.rand(-180000...180000).to_f * 0.0001) }
+    sequence(:lat) { (Random.new.rand(-180000...180000).to_f * 0.01) }
+    sequence(:long) { (Random.new.rand(-180000...180000).to_f * 0.01) }
   end
 end
