@@ -1,12 +1,13 @@
 Given(/^I am an authenticated google user$/) do
-  pending # express the regexp above with the code you wish you had
-  #User.create(name: "Mashallah Behbehani", email: , provider: , uid: , access_token: ENV['test_access_token'] , refresh_token: ENV['test_access_token'])
+  user = FactoryGirl.create(:user,id:57023802570)
 end
 
 Given(/^I have the following upcoming flybys:$/) do |table|
-  # table is a Cucumber::Ast::Table
-  pending # express the regexp above with the code you wish you had
-  
+  table.hashes.map do |hash|
+    pending
+    #TODO make passes in table real-world pre-sunrise and post-sunset. They're failing validation.
+    #FactoryGirl.create(:pass,user_id:57023802570,risetime:(hash["Risetime"]).to_datetime,duration:hash["Duration in minutes"])
+  end
 end
 
 When(/^I go to the homepage$/) do

@@ -4,10 +4,10 @@ Feature: In order to better understand the functionality of the application and 
 	Scenario: View upcoming ISS flybys
 		Given I am an authenticated google user
 		And I have the following upcoming flybys:
-		|       Risetime        |    Duration in minutes  |   
-		|  Sat Jan 25, 6:53 AM  |             4           |
-		|  Sun Jan 26, 6:05 AM  |			  3           |
-		|  Mon Jan 27, 6:52 AM  |             4           |
+		|       Risetime         |    Duration in minutes  |
+		|  Sat Jan 25, 06:53 UTC |             4           |
+		|  Sun Jan 26, 06:05 UTC |			   3           |
+		|  Mon Jan 27, 06:52 UTC |             4           |
 		When I go to the homepage
 		And I click "Sign in with Google"
 		Then I see the page has reloaded, and shows "Signed in with Google."
