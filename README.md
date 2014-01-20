@@ -2,7 +2,7 @@
 ISS Flyby
 ========
 
-**Sends users notifications to Google Glass when the ISS will be visible overhead soon.**
+**Sends notifications to users' Google Glass shortly before the ISS is visible overhead.**
 
 live at issflyby.herokuapp.com
 
