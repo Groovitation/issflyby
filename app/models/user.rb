@@ -41,11 +41,10 @@ class User < ActiveRecord::Base
     card[:menuItems] = [{action:"DELETE"},{action:"SHARE"},{action:"TOGGLE_PINNED"}]
 
     begin
-      response = HTTParty.post('https://www.googleapis.com/mirror/v1/timeline', body: card.to_json, headers: { 'Content-Type' => 'application/json', 'Authorization' => 'Bearer '+self.access_token })
+      return HTTParty.post('https://www.googleapis.com/mirror/v1/timeline', body: card.to_json, headers: { 'Content-Type' => 'application/json', 'Authorization' => 'Bearer '+self.access_token })
     rescue
       return false
     end
-    return response
   end
 
   def check_glass_location
@@ -53,7 +52,7 @@ class User < ActiveRecord::Base
       response = HTTParty.get('https://www.googleapis.com/mirror/v1/locations/latest', headers: { 'Content-Type' => 'application/json', 'Authorization' => 'Bearer '+self.access_token })
       return [response['latitude'],response['longitude']]
     rescue
-      # puts "couldn't get glass location"
+      #puts "couldn't get glass location"
     end
   end
 
