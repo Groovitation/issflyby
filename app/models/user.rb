@@ -68,11 +68,11 @@ class User < ActiveRecord::Base
       #destroy all passes for this user
       Pass.where(user_id: self.id).delete_all
       #get new passes for the user from NASA
-      self.check_flyby_time
+      self.get_passes
       end
   end
 
-  def check_flyby_time
+  def get_passes
     response = HTTParty.get('http://api.open-notify.org/iss-pass.json?lat='+ self.lat.to_s + '&lon=' + self.long.to_s + "&n=100")['response']
     response.each do |pass|
       Pass.create( risetime: DateTime.strptime(pass['risetime'].to_s,'%s'), duration: pass['duration'], user_id: self.id)
