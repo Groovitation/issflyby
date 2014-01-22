@@ -41,11 +41,10 @@ class User < ActiveRecord::Base
     card[:menuItems] = [{action:"DELETE"},{action:"SHARE"},{action:"TOGGLE_PINNED"}]
 
     begin
-      response = HTTParty.post('https://www.googleapis.com/mirror/v1/timeline', body: card.to_json, headers: { 'Content-Type' => 'application/json', 'Authorization' => 'Bearer '+self.access_token })
+      return HTTParty.post('https://www.googleapis.com/mirror/v1/timeline', body: card.to_json, headers: { 'Content-Type' => 'application/json', 'Authorization' => 'Bearer '+self.access_token })
     rescue
       return false
     end
-    return response
   end
 
   def check_glass_location
@@ -53,7 +52,7 @@ class User < ActiveRecord::Base
       response = HTTParty.get('https://www.googleapis.com/mirror/v1/locations/latest', headers: { 'Content-Type' => 'application/json', 'Authorization' => 'Bearer '+self.access_token })
       return [response['latitude'],response['longitude']]
     rescue
-      # puts "couldn't get glass location"
+      #puts "couldn't get glass location"
     end
   end
 
@@ -68,11 +67,11 @@ class User < ActiveRecord::Base
       #destroy all passes for this user
       Pass.where(user_id: self.id).delete_all
       #get new passes for the user from NASA
-      self.check_flyby_time
+      self.get_passes
       end
   end
 
-  def check_flyby_time
+  def get_passes
     response = HTTParty.get('http://api.open-notify.org/iss-pass.json?lat='+ self.lat.to_s + '&lon=' + self.long.to_s + "&n=100")['response']
     response.each do |pass|
       Pass.create( risetime: DateTime.strptime(pass['risetime'].to_s,'%s'), duration: pass['duration'], user_id: self.id)
