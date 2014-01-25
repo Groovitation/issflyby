@@ -1,4 +1,3 @@
-![My image](https://raw2.github.com/mkbehbehani/issflyby/master/app/assets/images/flyby.jpg)
 
 ISS Flyby
 ========
