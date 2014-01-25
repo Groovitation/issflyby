@@ -4,6 +4,7 @@
 @import "neat";
 @import "colors";
 @import "components";
+@import "stars";
 //ALL STYLES ARE MOBILE-FIRST, BASED ON IPHONE 5
 body{
 	@include outer-container;
