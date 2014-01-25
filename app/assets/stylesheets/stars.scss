@@ -81,12 +81,12 @@ header a, a:visited {
 
 .stars {
   background:#000 url(stars.png) repeat top center;
-  z-index:0;
+  z-index:-100;
 }
 
 .twinkling{
   background:transparent url(twinkling.png) repeat top center;
-  z-index:1;
+  z-index:-99;
 
   -moz-animation:move-twink-back 800s linear infinite;
   -ms-animation:move-twink-back 800s linear infinite;
@@ -97,7 +97,7 @@ header a, a:visited {
 
 .clouds{
     background:transparent url(clouds.png) repeat top center;
-    z-index:3;
+    z-index:-98;
 
   -moz-animation:move-clouds-back 800s linear infinite;
   -ms-animation:move-clouds-back 800s linear infinite;

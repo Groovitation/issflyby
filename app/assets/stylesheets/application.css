@@ -19,7 +19,10 @@ section{
 	img{margin: 0 auto; display:block;}
 }
 h1{
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
  	font-size:3em;
+ 	color: #fff;
 }
 h2, h3{ font-size:2em;}
 p{
@@ -27,3 +30,4 @@ p{
 	@include media($ipad) {font-size:2em;}
 	@include media($desktop) {font-size:2em;}
 }
+#appheader{text-align: center;}
