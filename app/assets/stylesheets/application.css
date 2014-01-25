@@ -1,13 +1,28 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the top of the
- * compiled file, but it's generally better to create a new file per style scope.
- *
- *= require_self
- *= require_tree .
- */
+@import "normalize";
+@import "bourbon";
+@import "gridsettings";
+@import "neat";
+@import "colors";
+@import "components";
+//ALL STYLES ARE MOBILE-FIRST, BASED ON IPHONE 5
+body{
+	@include outer-container;
+ 	color: $darkgray;
+}
+img{
+    max-width: 100%;
+    // border-top: 4px solid $gray;
+}
+section{
+	@include span-columns(12);
+	img{margin: 0 auto; display:block;}
+}
+h1{
+ 	font-size:3em;
+}
+h2, h3{ font-size:2em;}
+p{
+	font-size:1em;
+	@include media($ipad) {font-size:2em;}
+	@include media($desktop) {font-size:2em;}
+}

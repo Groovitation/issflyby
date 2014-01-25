@@ -1,0 +1,44 @@
+@import "colors";
+
+@mixin awesomebutton($size:1, $color:$lightblue, $textcolor: #fff, $padding:1){
+  display: block;
+  border: none;
+  border-radius:5px;
+  color: $textcolor;
+  background-color: $color;
+  box-shadow: 0 0.375em*$size darken($color, 20%); 
+  cursor: pointer;
+  padding: 1.565em*$size 1.5em*$size;
+  display: inline-block;
+  margin: 0.5em*$size auto;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align:center;
+  letter-spacing: 1px;
+  font-weight: 700;
+  outline: none;
+  position: relative;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+  &:after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+  }
+  &:hover {
+  	box-shadow: 0 0.5em*$size darken($color, 20%);
+	color: $textcolor;
+	top: -0.125em*$size;
+  }
+  &:visited {
+	color: $textcolor;
+  }
+  &:active{
+  	box-shadow: 0 0 darken($color, 20%);
+  	top: 0.375em*$size;
+  }
+}
