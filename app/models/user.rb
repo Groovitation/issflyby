@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :provider, :uid, :name, :email, :access_token, :refresh_token, :lat, :long
+  attr_accessible :provider, :uid, :name, :email, :access_token, :refresh_token, :lat, :long, :last_passes_call
   #validates_presence_of :name
   has_many :passes
   #after_create :compare_location!
@@ -73,9 +73,15 @@ class User < ActiveRecord::Base
 
   def get_passes
     response = HTTParty.get('http://api.open-notify.org/iss-pass.json?lat='+ self.lat.to_s + '&lon=' + self.long.to_s + "&n=100")['response']
-    response.each do |pass|
-      Pass.create( risetime: DateTime.strptime(pass['risetime'].to_s,'%s'), duration: pass['duration'], user_id: self.id)
+    if response
+      Pass.destroy_all
+      response.each do |pass|
+        Pass.create( risetime: DateTime.strptime(pass['risetime'].to_s,'%s'), duration: pass['duration'], user_id: self.id)
+      end
     end
+    #timestamp so we can tell later if this user needs more passes
+      self.last_passes_call = Time.now.utc
+      self.save
   end
 
 end
