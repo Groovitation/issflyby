@@ -1,7 +1,8 @@
 desc "check passes"
 task :check_passes => :environment do
   Pass.all.each do |pass|
-    if (pass.risetime - Time.now) < 20.minutes
+    if (pass.risetime - Time.now.utc) < 20.minutes
+      puts "notifying!"
     	pass.advance_notify
     	pass.destroy
     end
