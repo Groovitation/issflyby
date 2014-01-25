@@ -5,25 +5,25 @@ class Pass < ActiveRecord::Base
 	before_create :sun_permits
 
 	def weather_permits
-		if self.user.lat && self.user.long
-			# TODO check for cloudiness at the location and return false if it's cloudy
-			return true
-		end
+		true
+		#if self.user.lat && self.user.long
+		#	# TODO check for cloudiness at the location and return false if it's cloudy
+		#	return true
+		#end
 	end
 
 	def sun_permits
 		if self.user.lat && self.user.long
 			# Check to make sure the sun is positioned correctly and return false if not
-				# require 'sun_times'
-          rise = Time.at(self.risetime)
-          rise_date = Date.new(rise.year,rise.month,rise.day)
-	    		sunrise = SunTimes.new.rise(rise_date, self.user.lat, self.user.long)
-	    		sunrise_comparison = (sunrise.to_f - self.risetime.to_f)
-	    		sunset = SunTimes.new.set(rise_date, self.user.lat, self.user.long)
-	    		sunset_comparison = (self.risetime.to_f - sunset.to_f)
-	    		unless (sunrise_comparison < 45.minutes && sunrise_comparison > 0) || (sunset_comparison < 45.minutes && sunset_comparison > 0)
-	    			return false
-	    		end
+        rise = Time.at(self.risetime)
+        rise_date = Date.new(rise.year,rise.month,rise.day)
+        sunrise = SunTimes.new.rise(rise_date, self.user.lat, self.user.long)
+        sunrise_comparison = (sunrise.to_f - self.risetime.to_f)
+        sunset = SunTimes.new.set(rise_date, self.user.lat, self.user.long)
+        sunset_comparison = (self.risetime.to_f - sunset.to_f)
+        unless (sunrise_comparison < 45.minutes && sunrise_comparison > 0) || (sunset_comparison < 45.minutes && sunset_comparison > 0)
+          return false
+        end
 			return true
 		else
 			return false
@@ -42,7 +42,7 @@ class Pass < ActiveRecord::Base
 		if weather_permits
 			# TODO restructure for multiple space objects
 				# self.user.send_glass_card({text:self.spacecraft.name+" is passing over soon! "+pass.risetime.toString,isBundleCover:true})
-			self.user.send_glass_card({text:"ISS is passing over soon! "+pass.risetime.to_s,isBundleCover:true})
+			self.user.send_glass_card({text:"ISS is passing over soon! "+self.risetime.to_s,isBundleCover:true})
 			if self.spacecraft 
 				self.spacecraft.spacepeople.each do |sp|
 					self.user.send_glass_card({text:sp.name+" is on board",isBundleCover:false},false)
