@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :spaceperson do
-    name "MyString"
-    craft "MyString"
+    name "John Blaha"
+    association :spacecraft
   end
 end

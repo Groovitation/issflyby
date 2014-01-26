@@ -4,7 +4,6 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Craft</th>
       <th>Spacecraft</th>
       <th></th>
       <th></th>
@@ -16,8 +15,7 @@
     <% @spacepeople.each do |spaceperson| %>
       <tr>
         <td><%= spaceperson.name %></td>
-        <td><%= spaceperson.craft %></td>
-        <td><%= spaceperson.Spacecraft %></td>
+        <td><%= spaceperson.spacecraft.name %></td>
         <td><%= link_to 'Show', spaceperson %></td>
         <td><%= link_to 'Edit', edit_spaceperson_path(spaceperson) %></td>
         <td><%= link_to 'Destroy', spaceperson, method: :delete, data: { confirm: 'Are you sure?' } %></td>
