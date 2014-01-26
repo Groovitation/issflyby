@@ -1,5 +1,6 @@
 class PassesController < ApplicationController
   before_action :set_pass, only: [:show, :edit, :update, :destroy]
+  before_action :can_has_admin?
 
   # GET /passes
   # GET /passes.json

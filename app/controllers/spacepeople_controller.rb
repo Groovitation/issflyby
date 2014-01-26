@@ -1,5 +1,6 @@
 class SpacepeopleController < ApplicationController
   before_action :set_spaceperson, only: [:show, :edit, :update, :destroy]
+  before_action :can_has_admin?, except: :show
 
   # GET /spacepeople
   # GET /spacepeople.json
