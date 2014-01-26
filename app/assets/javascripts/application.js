@@ -15,5 +15,5 @@
 //= require turbolinks
 //= require_tree .
 $( document ).ready(function() {
-    $('#iss').animate({"top": "280px", "right": "110%"}, 30000);
+    $('#iss').animate({"top": "30%",  "right": "110%"}, 30000, "linear");
 });
