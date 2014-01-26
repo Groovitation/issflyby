@@ -6,6 +6,7 @@
 @import "components";
 @import "stars";
 //ALL STYLES ARE MOBILE-FIRST, BASED ON IPHONE 5
+html, body { height: 100%; width: 100%; margin: 0; }
 body{
 	@include outer-container;
  	color: $darkgray;
@@ -32,8 +33,8 @@ p{
 }
 #appheader{text-align: center;}
 #iss{
-	height: 7px; 
-	width: 7px; 
+	height: 5px; 
+	width: 5px; 
 	background-color: #fff; 
 	border-radius: 50%;
 	position: absolute;
@@ -43,10 +44,13 @@ p{
 
 }
 #glasscard{
-	$glasswidth: 480px;
-	background-color: #000;
-	opacity: 0.3;
-	width: $glasswidth;
-	height: 1.3*$glasswidth;
+	$cardscale:0.5;
+	background-color: transparentize(#fff, 0.9);
+	width: 640px*$cardscale;
+	height: 360px*$cardscale;
 	color: #fff;
+	box-sizing: border-box;
+    position: relative;
+	margin: 0 auto;
+	p{font-family: 'Roboto', sans-serif;}
 }
