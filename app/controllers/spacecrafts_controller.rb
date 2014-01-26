@@ -1,5 +1,6 @@
 class SpacecraftsController < ApplicationController
   before_action :set_spacecraft, only: [:show, :edit, :update, :destroy]
+  before_action :can_has_admin?, except: :show
 
   # GET /spacecrafts
   # GET /spacecrafts.json

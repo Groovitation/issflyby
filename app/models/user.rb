@@ -1,10 +1,15 @@
 class User < ActiveRecord::Base
-  attr_accessible :provider, :uid, :name, :email, :access_token, :refresh_token, :lat, :long, :last_passes_call
-  #validates_presence_of :name
-  has_many :passes
-  #after_create :compare_location!
   require 'geocoder'
+
+  attr_accessible :provider, :uid, :name, :email, :access_token, :refresh_token, :lat, :long, :last_passes_call
   reverse_geocoded_by :lat, :long
+
+  validates_presence_of :name
+  after_create :compare_location!
+  after_create :subscribe_to_iss
+
+  has_many :passes
+  has_many :spacecrafts, through: :subscriptions
 
   def self.create_with_omniauth(auth)
    where(auth.slice(:provider, :uid)).first_or_create do |user|
@@ -56,30 +61,38 @@ class User < ActiveRecord::Base
     end
   end
 
+  def subscribe_to_iss
+    Spacecraft.where(name:"International Space Station").each do |iss|
+      Subscription.create(user_id:self.id,spacecraft_id:iss.id)
+    end
+  end
+
   def compare_location!
     #call for glass location
     location = self.check_glass_location
     distance = self.distance_from(location)
-    #TODO if new glass location is more than 10000m from database saved coordinates for user (geocoder gem) OR user has no saved location
+    #if new glass location is more than 10000m from database saved coordinates for user (geocoder gem) OR user has no saved location
       if self.lat.blank? || distance > 1000
-      #save the new location in the database as the user's location
-      self.update(lat: location[0], long: location[1])
-      #destroy all passes for this user
-      Pass.where(user_id: self.id).delete_all
-      #get new passes for the user from NASA
-      self.get_passes
+        #save the new location in the database as the user's location
+          self.update(lat: location[0], long: location[1])
+        #destroy all passes for this user
+          Pass.where(user_id: self.id).delete_all
+        #get new passes for the user from NASA
+          self.get_spacecraft_passes
       end
   end
 
-  def get_passes
-    response = HTTParty.get('http://api.open-notify.org/iss-pass.json?lat='+ self.lat.to_s + '&lon=' + self.long.to_s + "&n=100")['response']
-    if response
-      self.passes.destroy_all
-      response.each do |pass|
-        Pass.create( risetime: DateTime.strptime(pass['risetime'].to_s,'%s'), duration: pass['duration'], user_id: self.id)
+  def get_spacecraft_passes
+    self.spacecrafts.each do |spacecraft|
+      response = HTTParty.get(spacecraft.endpoint + '?lat='+ self.lat.to_s + '&lon=' + self.long.to_s + "&n=100")['response']
+      if response
+        self.passes.destroy_all
+        response.each do |pass|
+          Pass.create( risetime: DateTime.strptime(pass['risetime'].to_s,'%s'), duration: pass['duration'], user_id: self.id, spacecraft_id:spacecraft.id)
+        end
       end
     end
-    #timestamp so we can tell later if this user needs more passes
+    #timestamp so we know later if this user needs fresh passes
       self.last_passes_call = Time.now.utc
       self.save
   end
