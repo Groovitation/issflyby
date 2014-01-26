@@ -1,5 +1,5 @@
 class Spacecraft < ActiveRecord::Base
-  attr_accessible :name, :lat, :long
+  attr_accessible :name, :lat, :long, :endpoint
   validates_presence_of :name
   has_many :passes
   has_many :spacepeople
