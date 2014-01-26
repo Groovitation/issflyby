@@ -8,4 +8,4 @@
 # Environment variables (ENV['...']) can be set in the file config/application.yml.
 # See http://railsapps.github.io/rails-environment-variables.html
 
-FactoryGirl.create(:spacecraft,name:"International Space Station",endpoint:"http://api.open-notify.org/iss-pass.json")
+Spacecraft.create(name:"International Space Station",endpoint:"http://api.open-notify.org/iss-pass.json")
