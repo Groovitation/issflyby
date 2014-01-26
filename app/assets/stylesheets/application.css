@@ -39,5 +39,6 @@ p{
 	position: absolute;
 	right: -3%;
 	top: 10%;
+	z-index: -98;
 
 }
