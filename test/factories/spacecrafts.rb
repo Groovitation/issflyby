@@ -2,8 +2,9 @@
 
 FactoryGirl.define do
   factory :spacecraft do
-    name "MyString"
-    crew 1
+    name "International Space Station"
+    apiname "ISS"
+    crew 6
     lat 1.5
     long 1.5
   end

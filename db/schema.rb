@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140126014200) do
+ActiveRecord::Schema.define(version: 20140126194039) do
 
   create_table "delayed_jobs", force: true do |t|
     t.integer  "priority",   default: 0, null: false
@@ -47,11 +47,11 @@ ActiveRecord::Schema.define(version: 20140126014200) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "endpoint"
+    t.string   "apiname"
   end
 
   create_table "spacepeople", force: true do |t|
     t.string   "name"
-    t.string   "craft"
     t.integer  "spacecraft_id"
     t.datetime "created_at"
     t.datetime "updated_at"

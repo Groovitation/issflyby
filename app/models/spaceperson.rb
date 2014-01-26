@@ -1,6 +1,7 @@
 class Spaceperson < ActiveRecord::Base
-  belongs_to :Spacecraft
-  attr_accessible :name, :craft
+  belongs_to :spacecraft
+  attr_accessible :name, :spacecraft_id
+
   def self.update_all
   	people = HTTParty.get('http://api.open-notify.org/astros.json')
     people['people'].map do |person|
