@@ -2,7 +2,7 @@ class Pass < ActiveRecord::Base
 	attr_accessible :risetime, :duration, :user_id, :spacecraft_id
 	belongs_to :spacecraft
 	belongs_to :user
-	before_create :sun_permits
+	before_save :sun_permits
 
 	def weather_permits
 		true

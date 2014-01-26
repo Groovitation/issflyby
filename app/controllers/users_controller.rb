@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
   def demo_card
-    if current_user.send_glass_card({text:"International Space Station is passing over soon! "+(Time.now.utc+7.minutes).to_s,isBundleCover:true})
-      redirect_to root_url, notice: "Demo card sent to glass."
-    else
-      redirect_to root_url, notice: "Demo card could not be sent!"
+    unless iss = Spacecraft.where(apiname:"ISS").first
+      iss = Spacecraft.create(name:"International Space Station", endpoint:"http://api.open-notify.org/iss-pass.json", apiname:"ISS")
     end
+    Pass.new(user_id:current_user.id,spacecraft_id:iss.id,risetime:Time.now+7.minutes).advance_notify
+    redirect_to root_url, notice: "Demo card sent to glass."
   end
 end
