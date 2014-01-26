@@ -14,4 +14,6 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-
+$( document ).ready(function() {
+    $('#iss').animate({"top": "280px", "right": "110%"}, 30000);
+});
