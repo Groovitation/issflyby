@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   after_create :subscribe_to_iss
 
   has_many :passes
+  has_many :subscriptions
   has_many :spacecrafts, through: :subscriptions
 
   def self.create_with_omniauth(auth)
