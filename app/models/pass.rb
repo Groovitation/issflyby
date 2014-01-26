@@ -2,7 +2,7 @@ class Pass < ActiveRecord::Base
 	attr_accessible :risetime, :duration, :user_id, :spacecraft_id
 	belongs_to :spacecraft
 	belongs_to :user
-	before_create :sun_permits
+	before_save :sun_permits
 
 	def weather_permits
 		true
@@ -42,10 +42,11 @@ class Pass < ActiveRecord::Base
 		if weather_permits
 			# TODO restructure for multiple space objects
 				# self.user.send_glass_card({text:self.spacecraft.name+" is passing over soon! "+pass.risetime.toString,isBundleCover:true})
-      self.user.send_glass_card({text:self.spacecraft.name+" is passing over soon! "+self.risetime.to_s,isBundleCover:true})
       self.spacecraft.spacepeople.each do |sp|
         self.user.send_glass_card({text:sp.name+" is on board",isBundleCover:false},false)
       end
+      local_risetime = self.risetime.in_time_zone("Central Time (US & Canada)")
+      self.user.send_glass_card({text:self.spacecraft.name+" flyby coming up "+local_risetime.strftime(" at %I:%M %p CST!"),isBundleCover:true})
 		end
 	end
 end
