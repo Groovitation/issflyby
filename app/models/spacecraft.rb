@@ -5,8 +5,9 @@ class Spacecraft < ActiveRecord::Base
     attr_accessible :apiname
 
   validates_presence_of :name
-  has_many :passes
-  has_many :spacepeople
+  has_many :passes, dependent: :destroy
+  has_many :spacepeople, dependent: :destroy
+  has_many :subscriptions, dependent: :destroy
 
   #def self.locate_iss
   #  location = HTTParty.get('http://api.open-notify.org/iss-now.json')
