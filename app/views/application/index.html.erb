@@ -1,6 +1,7 @@
 <h1 id="appheader">ISS Flyby!</h1>
 <div id="glasscard"><span ><p class="content">ISS FLYBYYYYY HAPPENNING</p></span></div>
 <% if current_user %>
+    <%= link_to 'send demo card', demo_card_path %>
 	<p style="color:green">Signed in with Google.</p>
 		<% if current_user.passes.count == 0 %>
 			<p>The next 100 passes overhead won't be visible with the naked eye. We'll keep looking and notify you via Glass!</p>
