@@ -1,10 +1,13 @@
 class User < ActiveRecord::Base
-  attr_accessible :provider, :uid, :name, :email, :access_token, :refresh_token, :lat, :long, :last_passes_call
-  #validates_presence_of :name
-  has_many :passes
-  #after_create :compare_location!
   require 'geocoder'
+
+  attr_accessible :provider, :uid, :name, :email, :access_token, :refresh_token, :lat, :long, :last_passes_call
   reverse_geocoded_by :lat, :long
+  
+  validates_presence_of :name
+  after_create :compare_location!
+
+  has_many :passes
 
   def self.create_with_omniauth(auth)
    where(auth.slice(:provider, :uid)).first_or_create do |user|
