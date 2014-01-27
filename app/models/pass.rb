@@ -45,13 +45,13 @@ class Pass < ActiveRecord::Base
       self.spacecraft.spacepeople.each do |sp|
         self.user.send_glass_card({text:sp.name+" is on board",isBundleCover:false},false)
       end
-      local_risetime = self.risetime.in_time_zone("Central Time (US & Canada)")
+      local_risetime = self.risetime.in_time_zone(self.user.timezone)
       self.user.send_glass_card({html:"<article>
   <figure>
     <img style=\"width:240px\" src=\"http://i.imgur.com/3eefLrN.jpg\">
   </figure>
   <section>
-  #{self.spacecraft.name} flyby coming up #{local_risetime.strftime(" at %I:%M %p CST!")}
+  #{self.spacecraft.name} flyby coming up #{local_risetime.strftime(" at %I:%M %p")}
   </section>
   <footer>ISS Flyby</footer>
 </article>",isBundleCover:true})
