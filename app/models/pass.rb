@@ -52,7 +52,7 @@ class Pass < ActiveRecord::Base
         if card = self.user.send_glass_card({html:"""
           <article>
             <figure>
-              <img style=\"width:240px\" src=\"http://www.issflyby.com/assets/#{sp.name.split("\ ").last.downcase}.jpg\">
+              <img style=\"width:240px\" src=\"http://www.issflyby.com/#{sp.name.split("\ ").last.downcase}.jpg\">
             </figure>
             <section>
               #{sp.name} is on board
@@ -66,7 +66,7 @@ class Pass < ActiveRecord::Base
 
       if card = self.user.send_glass_card({html:"<article>
   <figure>
-    <img style=\"width:240px\" src=\"http://www.issflyby.com/assets/iss.jpg\">
+    <img style=\"width:240px\" src=\"http://www.issflyby.com/iss.jpg\">
   </figure>
   <section>
   #{self.spacecraft.name} flyby coming up #{local_risetime.strftime(" at %I:%M %p")}
