@@ -10,6 +10,7 @@ html, body { height: 100%; width: 100%; margin: 0; }
 body{
 	@include outer-container;
 	background-image: url(fort_worth.jpg);
+	background-size: cover;
  	color: $darkgray;
 }
 img{
