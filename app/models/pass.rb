@@ -16,7 +16,7 @@ class Pass < ActiveRecord::Base
 
 	def sun_permits
     if self.demo
-      true
+      return true
     end
 
 		if self.user.lat && self.user.long
