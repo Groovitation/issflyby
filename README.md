@@ -6,6 +6,8 @@ ISS Flyby ![My image](https://api.travis-ci.org/mkbehbehani/issflyby.png)
 
 Live at www.issflyby.com
 
+[![tip for next commit](http://tip4commit.com/projects/348.svg)](http://tip4commit.com/projects/348)
+
 Developer setup
 ---------------------
 
