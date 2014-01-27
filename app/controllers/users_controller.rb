@@ -4,7 +4,8 @@ class UsersController < ApplicationController
 	  unless iss = Spacecraft.where(apiname:"ISS").first
       iss = Spacecraft.create(name:"International Space Station", endpoint:"http://api.open-notify.org/iss-pass.json", apiname:"ISS")
     end
-    Pass.create(user_id:current_user.id,spacecraft_id:iss.id,risetime:flyby_time.strftime(" at %I:%M %p CST!"),demo:true).advance_notify
+    pass = Pass.create(user_id:current_user.id,spacecraft_id:iss.id,risetime:flyby_time.strftime(" at %I:%M %p CST!"),demo:true)
+    pass.advance_notify
     redirect_to root_url, notice: "Demo card sent to glass."
   end
 end
