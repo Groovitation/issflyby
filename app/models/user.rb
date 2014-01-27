@@ -98,4 +98,13 @@ class User < ActiveRecord::Base
       self.save
   end
 
+  def timezone
+    google = HTTParty.get("https://maps.googleapis.com/maps/api/timezone/json?location="+self.lat.to_s+","+self.long.to_s+"&timestamp="+Time.now.utc.to_i.to_s+"&sensor=true")
+    if google
+      offset = (google['rawOffset'].to_i + google['dstOffset'].to_i) / 3600
+      return ActiveSupport::TimeZone[offset]
+    else
+      return "Greenwich Mean Time"
+    end
+  end
 end
