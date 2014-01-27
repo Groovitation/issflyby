@@ -49,7 +49,16 @@ class Pass < ActiveRecord::Base
 			# TODO restructure for multiple space objects
 				# self.user.send_glass_card({text:self.spacecraft.name+" is passing over soon! "+pass.risetime.toString,isBundleCover:true})
       self.spacecraft.spacepeople.each do |sp|
-        if card = self.user.send_glass_card({text:sp.name+" is on board",isBundleCover:false},false)
+        if card = self.user.send_glass_card({html:"""
+          <article>
+            <figure>
+              <img style=\"width:240px\" src=\"http://www.issflyby.com/assets/#{sp.name.split("\ ").last.downcase}.jpg\">
+            </figure>
+            <section>
+              #{sp.name} is on board
+            </section>
+            <footer>ISS Flyby</footer>
+          </article>""",isBundleCover:false},false)
           Card.create(pass_id:self.id,mirror_id:card['id'])
         end
       end
