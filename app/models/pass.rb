@@ -49,7 +49,9 @@ class Pass < ActiveRecord::Base
 			# TODO restructure for multiple space objects
 				# self.user.send_glass_card({text:self.spacecraft.name+" is passing over soon! "+pass.risetime.toString,isBundleCover:true})
       self.spacecraft.spacepeople.each do |sp|
-        self.user.send_glass_card({text:sp.name+" is on board",isBundleCover:false},false)
+        if card = self.user.send_glass_card({text:sp.name+" is on board",isBundleCover:false},false)
+          Card.create(pass_id:self.id,mirror_id:card['id'])
+        end
       end
       local_risetime = self.risetime.in_time_zone(self.user.timezone)
 
