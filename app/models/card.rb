@@ -6,6 +6,8 @@ class Card < ActiveRecord::Base
 
   def remove_from_timeline
     # TODO reattempt if fail
-    HTTParty.delete('https://www.googleapis.com/mirror/v1/timeline/'+self.mirror_id, headers: { 'Content-Type' => 'application/json', 'Authorization' => 'Bearer '+self.pass.user.access_token })
+    if self.pass && self.pass.user
+      HTTParty.delete('https://www.googleapis.com/mirror/v1/timeline/'+self.mirror_id, headers: { 'Content-Type' => 'application/json', 'Authorization' => 'Bearer '+self.pass.user.access_token })
+    end
   end
 end
