@@ -7,12 +7,9 @@ class Pass < ActiveRecord::Base
 	before_save :sun_permits
 
 	def weather_permits
-		true
-		#if self.user.lat && self.user.long
-		#	# TODO check for cloudiness at the location and return false if it's cloudy
-		#	return true
-		#end
-	end
+    #	TODO check for cloudiness at the location and return false if it's cloudy
+    true
+  end
 
 	def sun_permits
     if self.demo
@@ -36,19 +33,10 @@ class Pass < ActiveRecord::Base
 		end
 	end
 
-	# iced because it doesn't work well with check_passes.rake
-	# def passing_notify
-	# 	if sun_permits && weather_permits
-	# 		self.user.send_glass_card({text:self.spacecraft.name+" is passing over right now! "+pass.risetime.toString,isBundleCover:true})
-	# 		# TODO delete advance_notify card
-	# 	end
-	# end	
-
 	def advance_notify
 		if weather_permits
-			# TODO restructure for multiple space objects
-				# self.user.send_glass_card({text:self.spacecraft.name+" is passing over soon! "+pass.risetime.toString,isBundleCover:true})
       self.spacecraft.spacepeople.each do |sp|
+        # TODO must be a way to make these html templates... much cleaner and they could then be reused for the splash page sample card
         if card = self.user.send_glass_card({html:"""
           <article>
             <figure>

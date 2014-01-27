@@ -40,6 +40,6 @@ class Spacecraft < ActiveRecord::Base
   end
 
   def fire_laser(lat,lon,intensity)
-    #TODO space laser at any place on Earth
+    #TODO fire space laser at any place on Earth
   end
 end
