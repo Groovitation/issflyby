@@ -2,6 +2,8 @@ class Pass < ActiveRecord::Base
 	attr_accessible :risetime, :duration, :user_id, :spacecraft_id
 	belongs_to :spacecraft
 	belongs_to :user
+  has_many :cards, dependent: :destroy
+
 	before_save :sun_permits
 
 	def weather_permits
@@ -46,16 +48,18 @@ class Pass < ActiveRecord::Base
         self.user.send_glass_card({text:sp.name+" is on board",isBundleCover:false},false)
       end
       local_risetime = self.risetime.in_time_zone(self.user.timezone)
-      self.user.send_glass_card({html:"
-      	<article>
-		  <figure>
-		    <img style=\"width:240px\" src=\"http://www.issflyby.com/iss.jpg\">
-		  </figure>
-		  <section>
-		  #{self.spacecraft.name} flyby coming up #{local_risetime.strftime(" at %I:%M %p")}
-		  </section>
-		  <footer>ISS Flyby</footer>
-		</article>",isBundleCover:true})
+
+      if card = self.user.send_glass_card({html:"<article>
+  <figure>
+    <img style=\"width:240px\" src=\"http://www.issflyby.com/iss.jpg\">
+  </figure>
+  <section>
+  #{self.spacecraft.name} flyby coming up #{local_risetime.strftime(" at %I:%M %p")}
+  </section>
+  <footer>ISS Flyby</footer>
+</article>",isBundleCover:true})
+        Card.create(pass_id:self.id,mirror_id:card['id'])
+      end
 		end
 	end
 end
