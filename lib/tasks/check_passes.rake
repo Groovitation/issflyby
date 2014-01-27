@@ -1,9 +1,15 @@
 desc "check passes"
 task :check_passes => :environment do
   Pass.all.each do |pass|
-    if (pass.risetime - Time.now.utc) < 20.minutes
-    	pass.advance_notify
-    	pass.destroy
-    end
+    difference = pass.risetime - Time.now.utc
+    # check to see if pass is coming up
+      if difference < 20.minutes && difference > 0
+        pass.advance_notify
+      end
+
+    # check to see if pass is old
+      if difference < 0
+        pass.destroy
+      end
   end
 end

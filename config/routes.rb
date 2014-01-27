@@ -1,4 +1,6 @@
 Issflyby::Application.routes.draw do
+  resources :cards
+
   resources :subscriptions
 
   resources :spacepeople
