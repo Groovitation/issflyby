@@ -1,5 +1,5 @@
 class Pass < ActiveRecord::Base
-	attr_accessible :risetime, :duration, :user_id, :spacecraft_id
+	attr_accessible :risetime, :duration, :user_id, :spacecraft_id, :demo
 	belongs_to :spacecraft
 	belongs_to :user
   has_many :cards, dependent: :destroy
@@ -15,6 +15,10 @@ class Pass < ActiveRecord::Base
 	end
 
 	def sun_permits
+    if self.demo
+      true
+    end
+
 		if self.user.lat && self.user.long
 			# Check to make sure the sun is positioned correctly and return false if not
         rise = Time.at(self.risetime)
