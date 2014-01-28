@@ -18,7 +18,8 @@ $( document ).ready(function() {
     $('#iss').animate({"top": "30%",  "right": "110%"}, 30000, "linear");
     $('.slider').glide({
         autoplay: 500000,
-        arrows: 'body',
-        nav: 'body'
+        nav: false,
+        arrowLeftText : "<",
+        arrowRightText: ">"
     });
 });
