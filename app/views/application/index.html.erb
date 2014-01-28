@@ -1,6 +1,10 @@
 <h1 id="appheader">ISS Flyby for Glass</h1>
-<div id="glasscard">
-    <img src="/samplecard.png" alt="ISS Flyby"/>
+<div id="frame">
+    <ul class="slidee">
+        <li><div class="glasscard"><p>Card 1</p></div></li>
+        <li><div class="glasscard"><p>Card 2</p></div></li> 
+        <li><div class="glasscard"><p>Card 3</p></div></li>
+    </ul>
 </div>
 <% if current_user %>
     <%= link_to 'send demo card', demo_card_path %>

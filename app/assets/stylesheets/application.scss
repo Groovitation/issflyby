@@ -45,13 +45,15 @@ p{
 	z-index: -98;
 
 }
-#glasscard{
+.glasscard{
 	$cardscale:0.5;
+	background-color: transparentize(#fff, 0.9);
 	width: 640px*$cardscale;
 	height: 360px*$cardscale;
 	box-sizing: border-box;
     position: relative;
 	margin: 0 auto;
-	p{font-family: 'Roboto', sans-serif;}
+	p{font-family: 'Roboto', sans-serif; color: #fff;}
 //    z-index: -99;
 }
+
