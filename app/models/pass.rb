@@ -8,7 +8,13 @@ class Pass < ActiveRecord::Base
 
 	def weather_permits
     #	TODO check for cloudiness at the location and return false if it's cloudy
-    true
+    begin
+      weather = HTTParty.get('http://api.openweathermap.org/data/2.5/find?lat='+self.user.lat.to_s+'&lon='+self.user.long.to_s)
+      cloudy_percent = 30
+      return weather['list'].first['clouds']['all'].to_i < cloudy_percent
+    rescue
+      return true
+    end
   end
 
 	def sun_permits
