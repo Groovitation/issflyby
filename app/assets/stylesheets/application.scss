@@ -30,9 +30,9 @@ h1{
 }
 h2, h3{ font-size:2em;}
 p{
-	font-size:1em;
-	@include media($ipad) {font-size:2em;}
-	@include media($desktop) {font-size:2em;}
+	font-size:1.2em;
+	// @include media($ipad) {font-size:2em;}
+	// @include media($desktop) {font-size:2em;}
 }
 #appheader{text-align: center;}
 #iss{
@@ -51,7 +51,15 @@ p{
 	background-color: transparentize(#fff, 0.9);
 	width: 640px*$cardscale;
 	height: 360px*$cardscale;
-	img{width:37.5%; height:100%;}
-	p{font-family: 'Roboto', sans-serif; color: #fff;}
+	margin: 0 auto;
+	img{width:37.5%; height:100%;float: left;}
+	p{
+		float: right; 
+		font-family: 'Roboto', sans-serif; 
+		font-weight: 100; 
+		color: #fff; 
+		width: 62%;
+		padding: 0.3em;
+	}
 //    z-index: -99;
 }
