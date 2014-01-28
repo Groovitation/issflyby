@@ -5,6 +5,7 @@
 	    <div class="glasscard">
 		    <%= image_tag("iss.jpg") %>
 		    <p>International Space Station flyby coming up <%= @flyby_time.strftime(" at %I:%M %p CST!") %></p>
+		    <footer><span class="source">ISS Flyby</span><span class="time">3 mins ago</span></footer>
 	    </div>
     </li>
     <% @spacepeople.each do |spaceperson| %>

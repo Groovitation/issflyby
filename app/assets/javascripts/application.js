@@ -17,7 +17,7 @@
 $( document ).ready(function() {
     $('#iss').animate({"top": "30%",  "right": "110%"}, 30000, "linear");
     $('.slider').glide({
-        autoplay: 3000,
+        autoplay: 500000,
         arrows: 'body',
         nav: 'body'
     });

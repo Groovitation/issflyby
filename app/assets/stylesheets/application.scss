@@ -12,7 +12,7 @@ body{
 	@include outer-container;
 	background-image: url(fort_worth.jpg);
 	background-size: cover;
- 	color: $darkgray;
+ 	color: #fff;
 }
 img{
     max-width: 100%;
@@ -52,6 +52,7 @@ p{
 	width: 640px*$cardscale;
 	height: 360px*$cardscale;
 	margin: 0 auto;
+	position: relative;
 	img{width:37.5%; height:100%;float: left;}
 	p{
 		float: right; 
@@ -59,7 +60,10 @@ p{
 		font-weight: 100; 
 		color: #fff; 
 		width: 62%;
-		padding: 0.3em;
+		padding: 0.8em;
 	}
+	footer{font-family: 'Roboto', sans-serif; bottom:0; right: 0; position: absolute; width: 62%; font-size: 0.9em; font-weight:300;}
+	.source{float:left; padding: 0.8em;}
+	.time{float:right; padding: 0.8em;}
 //    z-index: -99;
 }
