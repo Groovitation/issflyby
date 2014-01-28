@@ -16,5 +16,9 @@
 //= require_tree .
 $( document ).ready(function() {
     $('#iss').animate({"top": "30%",  "right": "110%"}, 30000, "linear");
-    $('#frame').sly('method' [, arguments... ] );
+    $('.slider').glide({
+        autoplay: 3000,
+        arrows: 'body',
+        nav: 'body'
+    });
 });

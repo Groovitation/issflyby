@@ -5,6 +5,7 @@
 @import "colors";
 @import "components";
 @import "stars";
+@import "glide";
 //ALL STYLES ARE MOBILE-FIRST, BASED ON IPHONE 5
 html, body { height: 100%; width: 100%; margin: 0; }
 body{
@@ -50,10 +51,6 @@ p{
 	background-color: transparentize(#fff, 0.9);
 	width: 640px*$cardscale;
 	height: 360px*$cardscale;
-	box-sizing: border-box;
-    position: relative;
-	margin: 0 auto;
 	p{font-family: 'Roboto', sans-serif; color: #fff;}
 //    z-index: -99;
 }
-
