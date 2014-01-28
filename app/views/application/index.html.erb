@@ -12,7 +12,8 @@
     	<li class="slide">
 	    	<div class="glasscard">
 		    	<%= image_tag(spaceperson.name.split("\ ").last.downcase+".jpg") %>
-		    	<p>Card 2</p>
+		    	<p><%= spaceperson.name %> is on board.</p>
+		    <footer><span class="source">ISS Flyby</span><span class="time">3 mins ago</span></footer>
 	    	</div>
     	</li>
     <% end %>
