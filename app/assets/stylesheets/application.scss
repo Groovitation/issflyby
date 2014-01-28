@@ -10,7 +10,7 @@
 html, body { height: 100%; width: 100%; margin: 0; }
 body{
 	@include outer-container;
-	background-image: url(fort_worth.jpg);
+	background-image: url(san_rafael.jpg);
 	background-size: cover;
  	color: #fff;
 }
@@ -34,6 +34,7 @@ p{
 	// @include media($ipad) {font-size:2em;}
 	// @include media($desktop) {font-size:2em;}
 }
+a{font-family: 'Open Sans', sans-serif;}
 li{list-style-type:none;}
 #appheader{text-align: center;}
 #iss{
@@ -69,4 +70,7 @@ li{list-style-type:none;}
 //    z-index: -99;
 }
 .slider-arrow {color: #fff; text-decoration:none; font-size:3em; top: -10em; display:none;}
-#login{a{ @include awesomebutton($size:1, $color:$google, $padding:1); width: 320px;} text-align:center; }
+#login{
+	text-align:center; 
+	a{ @include awesomebutton($size:1, $color:$google, $padding:1); width: 320px;}
+}
