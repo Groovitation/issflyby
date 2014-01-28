@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
   helper_method :correct_user?
   helper_method :can_has_admin?
 
+  def index
+    @spacepeople = Spaceperson.all
+  end 
+
   private
     def current_user
       begin
@@ -37,7 +41,5 @@ class ApplicationController < ActionController::Base
       end
     end
 
-    def index
-      
-    end 
+
 end

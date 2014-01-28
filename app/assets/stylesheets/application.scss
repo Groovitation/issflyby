@@ -51,6 +51,7 @@ p{
 	background-color: transparentize(#fff, 0.9);
 	width: 640px*$cardscale;
 	height: 360px*$cardscale;
+	img{width:37.5%; height:100%;}
 	p{font-family: 'Roboto', sans-serif; color: #fff;}
 //    z-index: -99;
 }
