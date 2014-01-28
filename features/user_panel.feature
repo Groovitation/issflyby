@@ -25,8 +25,9 @@ Feature: In order to better understand the functionality of the application and 
 		And I click "Sign Out"
 		Then I am redirected to the landing page
 		And I see the message "Successfully signed out"
-
-	Scenario: Send test card
+	
+	@omniauth_test
+	Scenario: Send demo card
 		Given I am an authenticated google user
 		When I go to the homepage
 		And I click "Sign in with Google"

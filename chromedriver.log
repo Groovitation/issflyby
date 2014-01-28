@@ -1,0 +1,21 @@
+[0.000][INFO]:      ChromeDriver 19.0.1068.0 /usr/local/bin/chromedriver
+[0.250][FINE]:      Initializing session with capabilities {
+   "browserName": "chrome",
+   "chrome.detach": true,
+   "chrome.extensions": [  ],
+   "chrome.profile": "UEsDBBQAAAAIAIagO0RDv6ajBAAAAAIAAAATABQARGVmYXVsdC9QcmVmZXJlbmNlc5mZEAAAAAAAAAAAAAAAAAAAAAAAq64FA...",
+   "chromeOptions": {
+      "detach": true,
+      "extensions": [  ],
+      "profile": "UEsDBBQAAAAIAIagO0RDv6ajBAAAAAIAAAATABQARGVmYXVsdC9QcmVmZXJlbmNlc5mZEAAAAAAAAAAAAAAAAAAAAAAAq64FA..."
+   },
+   "cssSelectorsEnabled": true,
+   "javascriptEnabled": true,
+   "nativeEvents": false,
+   "platform": "ANY",
+   "rotatable": false,
+   "takesScreenshot": false,
+   "version": ""
+}
+
+[0.251][INFO]:      Using named testing interface

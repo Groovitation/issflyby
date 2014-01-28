@@ -1,5 +1,5 @@
 Given(/^I am an authenticated google user$/) do
-  user = FactoryGirl.create(:user,id:57023802570)
+  visit '/sign_in'
 end
 
 Given(/^I have the following upcoming flybys:$/) do |table|
