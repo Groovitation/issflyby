@@ -14,12 +14,22 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-$( document ).ready(function() {
-    $('#iss').animate({"top": "30%",  "right": "110%"}, 30000, "linear");
-    $('.slider').glide({
-        autoplay: 3000,
-        nav: false,
-        arrowLeftText : "<",
-        arrowRightText: ">"
+//ISS animation
+    $( document ).ready(function() {
+        $('#iss').animate({"top": "30%",  "right": "110%"}, 30000, "linear");
+        $('.slider').glide({
+            autoplay: 3000,
+            nav: false,
+            arrowLeftText : "<",
+            arrowRightText: ">"
+        });
+    });
+
+//Demo card AJAX
+$('a#demo').click(function(e){
+    alert("clucked");
+    e.preventDefault;
+    $.get('/demo_card').success(function(){
+      alert('demo card sent');
     });
 });
