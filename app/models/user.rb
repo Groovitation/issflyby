@@ -63,9 +63,11 @@ class User < ActiveRecord::Base
   end
 
   def subscribe_to_iss
-    Spacecraft.where(name:"International Space Station").each do |iss|
-      Subscription.create(user_id:self.id,spacecraft_id:iss.id)
+    unless iss = Spacecraft.where(apiname:"ISS").first
+      #create iss if none is present
+        iss = Spacecraft.create(name:"International Space Station", endpoint:"http://api.open-notify.org/iss-pass.json", apiname:"ISS")
     end
+    Subscription.create(user_id:self.id,spacecraft_id:iss.id)
   end
 
   def compare_location!

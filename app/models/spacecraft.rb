@@ -20,7 +20,7 @@ class Spacecraft < ActiveRecord::Base
   #end
 
   def check_spacepeople
-    astros = HTTParty.get('http://api.open-notify.org/astros.json?craft=iss')
+    astros = HTTParty.get('http://api.open-notify.org/astros.json')
 
     if astros
       #remove previous spacepeople
