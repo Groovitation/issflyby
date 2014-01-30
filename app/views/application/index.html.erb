@@ -9,9 +9,26 @@
 		    <footer><span class="source">ISS Flyby</span><span class="time">3 mins ago</span></footer>
 	    </div>
     </li>
-    <% @spacepeople.each do |spaceperson| %>
+    <% @spacepeople.each.with_index do |spaceperson, index| %>
     	<li class="slide">
-    		<div class="description"><p>See who's on the ISS at that moment.</p></div>
+    		<% if index == 0 %>
+				<div class="description"><p>See who's on the ISS at that moment. </p></div>
+	    	<% end %>
+	    	<% if index == 1  %>
+	    		<div class="description"><p>Flybys are determined by your Google Glass' position.</p></div>
+	    	<% end %>
+	    	<% if index == 2  %>
+	    		<div class="description"><p> Sunrise, sunset and even clouds are factored in. </p></div>
+	    	<% end %>
+	    	<% if index == 3  %>
+	    		<div class="description"><p>You'll only receive flybys worth running outside for.</p></div>
+	    	<% end %>
+	    	<% if index == 4  %>
+	    		<div class="description"><p>20 mins later the cards disappear, leaving your glass timeline clean.</p></div>
+	    	<% end %>
+	    	<% if index == 5  %>
+	    		<div class="description"><p>To start, connect your Google Glass by logging in below.</p></div>
+	    	<% end %>
 	    	<div class="glasscard">
 		    	<%= image_tag(spaceperson.name.split("\ ").last.downcase+".jpg") %>
 		    	<p><%= spaceperson.name %> is on board.</p>
