@@ -1,7 +1,8 @@
-<h1 id="appheader">ISS Flyby for Glass</h1>
+<h1 id="appheader">ISS Flyby</h1>
 <div class="slider">
   <ul class="slides">
     <li class="slide">
+    	<div class="description"><p>Get cards to your Google Glass as the ISS approaches.</p></div>
 	    <div class="glasscard">
 		    <%= image_tag("iss.jpg") %>
 		    <p>International Space Station flyby coming up <%= @flyby_time.strftime(" at %I:%M %p CST!") %></p>
@@ -10,6 +11,7 @@
     </li>
     <% @spacepeople.each do |spaceperson| %>
     	<li class="slide">
+    		<div class="description"><p>See who's on the ISS at that moment.</p></div>
 	    	<div class="glasscard">
 		    	<%= image_tag(spaceperson.name.split("\ ").last.downcase+".jpg") %>
 		    	<p><%= spaceperson.name %> is on board.</p>
