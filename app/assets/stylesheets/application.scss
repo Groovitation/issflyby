@@ -48,7 +48,7 @@ li{list-style-type:none;}
 	z-index: -98;
 
 }
-.slider {height: 270px;}
+
 .glasscard{
 	$cardscale:0.5;
 	background-color: transparentize(#fff, 0.9);
@@ -70,7 +70,6 @@ li{list-style-type:none;}
 	.time{float:right; padding: 0.8em;}
 //    z-index: -99;
 }
-.slider-arrow {color: #fff; text-decoration:none; font-size:3em; top: -10em; display:none;}
 #login{
 	text-align:center; 
 	a{ @include awesomebutton($size:1, $color:$google, $padding:1); width: 320px;}
@@ -81,4 +80,8 @@ li{list-style-type:none;}
 	margin: 0 auto; 
 	min-height:2.5em;
 	p{display:none;}
+}
+.swiper-container, .swiper-slide {
+  width: 500px;
+  height: 200px;
 }

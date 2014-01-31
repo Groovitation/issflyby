@@ -1,7 +1,8 @@
 <h1 id="appheader">ISS Flyby</h1>
-<div class="slider">
-  <ul class="slides">
-    <li class="slide">
+
+<div class="swiper-container">
+  <ul class="swiper-wrapper">
+    <li class="swiper-slide">
     	<div class="description"><p>Get cards to your Google Glass as the ISS approaches.</p></div>
 	    <div class="glasscard">
 		    <%= image_tag("iss.jpg") %>
@@ -10,7 +11,7 @@
 	    </div>
     </li>
     <% @spacepeople.each.with_index do |spaceperson, index| %>
-    	<li class="slide">
+    	<li class="swiper-slide">
     		<% if index == 0 %>
 				<div class="description"><p>See who's on the ISS at that moment. </p></div>
 	    	<% end %>
