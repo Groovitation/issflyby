@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
   def index
     @spacepeople = Spaceperson.all
     @flyby_time = Time.now + 600
+    @order_random = rand(2)
   end 
 
   private

@@ -35,7 +35,7 @@ p{
 	// @include media($ipad) {font-size:2em;}
 	// @include media($desktop) {font-size:2em;}
 }
-a{font-family: 'Open Sans', sans-serif;}
+a{font-family: 'Open Sans', sans-serif;  text-decoration: none !important; }
 li{list-style-type:none;}
 
 #appheader{text-align: center; margin:0.3em 0 0.2em;}
@@ -77,6 +77,7 @@ li{list-style-type:none;}
 		font-weight:300;
 		padding: 0 0.6em 0.6em 0.6em;
 	}
+	a{color:#fff;}
 	.source{float:left;}
 	.time{float:right;}
 }
@@ -153,4 +154,8 @@ li{list-style-type:none;}
 }
 .swiper-active-switch {
   background: #fff;
+}
+.github{@include awesomebutton($size:1, $color:$lightgray, $padding:0.4); text-decoration:none;}
+#mashallah{
+	a{font-size:0.7em;}
 }
