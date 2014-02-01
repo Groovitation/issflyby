@@ -6,7 +6,8 @@
 @import "components";
 @import "stars";
 @import "swiper";
-//ALL STYLES ARE MOBILE-FIRST, BASED ON IPHONE 5
+//ALL STYLES ARE MOBILE-FIRST, BASED ON IPHONE 4
+$cardscale:0.4;
 html, body { height: 100%; width: 100%; margin: 0; }
 body{
 	@include outer-container;
@@ -25,10 +26,10 @@ section{
 h1{
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 300;
- 	font-size:3em;
+ 	font-size:2em;
  	color: #fff;
 }
-h2, h3{ font-size:2em;}
+h2, h3{ font-size:1.5em;}
 p{
 	font-size:1.2em;
 	// @include media($ipad) {font-size:2em;}
@@ -36,7 +37,7 @@ p{
 }
 a{font-family: 'Open Sans', sans-serif;}
 li{list-style-type:none;}
-#appheader{text-align: center;}
+#appheader{text-align: center; margin:0.5em 0;}
 #iss{
 	height: 5px; 
 	width: 5px; 
@@ -49,7 +50,6 @@ li{list-style-type:none;}
 
 }
 .glasscard{
-	$cardscale:0.5;
 	background-color: transparentize(#fff, 0.9);
 	width: 640px*$cardscale;
 	height: 360px*$cardscale;
@@ -60,25 +60,26 @@ li{list-style-type:none;}
 		float: right; 
 		font-family: 'Roboto', sans-serif; 
 		font-weight: 100; 
+		font-size: 1em;
 		color: #fff; 
 		width: 62%;
 		padding: 0.8em;
 	}
-	footer{font-family: 'Roboto', sans-serif; bottom:0; right: 0; position: absolute; width: 62%; font-size: 0.9em; font-weight:300;}
-	.source{float:left; padding: 0.8em;}
-	.time{float:right; padding: 0.8em;}
+	footer{font-family: 'Roboto', sans-serif; bottom:0; right: 0; position: absolute; width: 62%; font-size: 0.9em; font-weight:300; }
+	.source{float:left; padding:0 0 0.6em 0.6em;}
+	.time{float:right; padding:0 0.6em 0.6em 0;}
 //    z-index: -99;
 }
+.description{ width:640px*$cardscale;}
 #login{
 	text-align:center; 
 	a{ @include awesomebutton($size:1, $color:$google, $padding:1); width: 320px;}
 }
 .swiper-container {
   width: 100%;
-  height: 350px;
+  height: 250px;
   color: #fff;
   text-align: center;
-  margin-top: 1em;
 }
 .swiper-slide {
   opacity: 0.4;
@@ -116,7 +117,7 @@ li{list-style-type:none;}
   left: 0px;
   width: 100%;
   text-align: center;
-  margin-top: 1em;
+  margin-top: 0;
 }
 .swiper-pagination-switch {
   display: inline-block;
