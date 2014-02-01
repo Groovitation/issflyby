@@ -2,7 +2,7 @@
 
 <div class="swiper-container">
   <div class="swiper-wrapper">
-    <div class="swiper-slide">
+    <div class="swiper-slide swiper-slide-visible">
     	<div class="description"><p>Get cards to your Google Glass as the ISS approaches.</p></div>
 	    <div class="glasscard">
 		    <%= image_tag("iss.jpg") %>
@@ -11,7 +11,7 @@
 	    </div>
     </div>
     <% @spacepeople.each.with_index do |spaceperson, index| %>
-    	<div class="swiper-slide">
+    	<div class="swiper-slide swiper-slide-visible">
     		<% if index == 0 %>
 				<div class="description"><p>See who's on the ISS at that moment. </p></div>
 	    	<% end %>
