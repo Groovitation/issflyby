@@ -9,8 +9,141 @@
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300|Roboto:400,300,100' rel='stylesheet' type='text/css'>
 </head>
 <body>
-	
-	<div id="iss"></div>
+	  <style>
+/* Demo Styles */
+.swiper-container {
+  margin-top: 2em;
+  width: 100%;
+  height: 250px;
+  color: #fff;
+  text-align: center;
+}
+.swiper-slide {
+  height: 100%;
+  opacity: 0.4;
+  -webkit-transition: 300ms;
+  -moz-transition: 300ms;
+  -ms-transition: 300ms;
+  -o-transition: 300ms;
+  transition: 300ms;
+  -webkit-transform: scale(0);
+  -moz-transform: scale(0);
+  -ms-transform: scale(0);
+  -o-transform: scale(0);
+  transform: scale(0);
+}
+.swiper-slide-visible {
+  opacity: 0.5;
+  -webkit-transform: scale(0.8);
+  -moz-transform: scale(0.8);
+  -ms-transform: scale(0.8);
+  -o-transform: scale(0.8);
+  transform: scale(0.8);
+}
+.swiper-slide-active {
+  top: 0;
+  opacity: 1;
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
+}
+.red-slide {
+  background: #ca4040;
+}
+.blue-slide {
+  background: #4390ee;
+}
+.orange-slide {
+  background: #ff8604;
+}
+.green-slide {
+  background: #49a430;
+}
+.pink-slide {
+  background: #973e76;
+}
+.swiper-slide .title {
+  font-style: italic;
+  font-size: 42px;
+  margin-top: 80px;
+  margin-bottom: 0;
+  line-height: 45px;
+}
+.pagination {
+  position: absolute;
+  z-index: 20;
+  left: 0px;
+  width: 100%;
+  text-align: center;
+  bottom: 5px;
+}
+.swiper-pagination-switch {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 8px;
+  background: #aaa;
+  margin-right: 8px;
+  cursor: pointer;
+  -webkit-transition: 300ms;
+  -moz-transition: 300ms;
+  -ms-transition: 300ms;
+  -o-transition: 300ms;
+  transition: 300ms;
+  opacity: 0;
+  position: relative;
+  top: -50px;
+}
+.swiper-visible-switch {
+  opacity: 1;
+  top: 0;
+  background: #aaa;
+}
+.swiper-active-switch {
+  background: #fff;
+}
+  </style>
+</head>
+<body>
+
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide red-slide">
+          <div class="title">Slide 1</div>
+        </div>
+        <div class="swiper-slide blue-slide">
+          <div class="title">Slide 2</div>
+        </div>
+        <div class="swiper-slide orange-slide">
+          <div class="title">Slide 3</div>
+        </div>
+        <div class="swiper-slide blue-slide">
+          <div class="title">Slide 4</div>
+        </div>
+        <div class="swiper-slide red-slide">
+          <div class="title">Slide 5</div>
+        </div>
+        <div class="swiper-slide green-slide">
+          <div class="title">Slide 6</div>
+        </div>
+      </div>
+    </div>
+    <div class="pagination"></div>
+
+  <script src="js/jquery-1.10.1.min.js"></script>
+  <script src="js/idangerous.swiper-2.1.min.js"></script>
+  <script>
+  var mySwiper = new Swiper('.swiper-container',{
+    pagination: '.pagination',
+    paginationClickable: true,
+    centeredSlides: true,
+    slidesPerView: 3,
+    watchActiveIndex: true
+  })
+  </script>
+<!-- 	<div id="iss"></div>
     <div class="stars"></div>
     <div class="twinkling"></div>
     <div class="clouds"></div>
@@ -18,6 +151,6 @@
         <div class="notice"><%= flash[:notice] %></div>
     <% end %>
 <%= yield %>
-
+ -->
 </body>
 </html>
