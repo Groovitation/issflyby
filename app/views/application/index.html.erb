@@ -1,17 +1,17 @@
 <h1 id="appheader">ISS Flyby</h1>
 
 <div class="swiper-container">
-  <divul class="swiper-wrapper">
-    <li class="swiper-slide">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide">
     	<div class="description"><p>Get cards to your Google Glass as the ISS approaches.</p></div>
 	    <div class="glasscard">
 		    <%= image_tag("iss.jpg") %>
 		    <p>International Space Station flyby coming up <%= @flyby_time.strftime(" at %I:%M %p CST!") %></p>
 		    <footer><span class="source">ISS Flyby</span><span class="time">3 mins ago</span></footer>
 	    </div>
-    </li>
+    </div>
     <% @spacepeople.each.with_index do |spaceperson, index| %>
-    	<li class="swiper-slide">
+    	<div class="swiper-slide">
     		<% if index == 0 %>
 				<div class="description"><p>See who's on the ISS at that moment. </p></div>
 	    	<% end %>
@@ -35,7 +35,7 @@
 		    	<p><%= spaceperson.name %> is on board.</p>
 		    <footer><span class="source">ISS Flyby</span><span class="time">3 mins ago</span></footer>
 	    	</div>
-    	</li>
+    	</div>
     <% end %>
   </div>
 </div>
