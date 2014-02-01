@@ -44,7 +44,8 @@ class User < ActiveRecord::Base
     # card[:html] ||= "<article class=\'photo\'>\n  <img src=\'https://mirror-api-playground.appspot.com/links/filoli-spring-fling.jpg\' width=\'100%\' height=\'100%\'>\n  <div class=\'photo-overlay\'/>\n  <section>\n <p class=\'text-auto-size\'>Spring Fling Fundraiser at Filoli</p>\n  </section>\n</article>\n"
     card[:bundleId] = "iss_flyby"
     card[:notification] = {level:"DEFAULT"} if ding
-    card[:menuItems] = [{action:"DELETE"},{action:"SHARE"},{action:"TOGGLE_PINNED"}]
+    #TODO #30 set up share subscription to handle sharing by users: {action:"SHARE"}
+    card[:menuItems] = [{action:"DELETE"},{action:"TOGGLE_PINNED"}]
 
     begin
       return HTTParty.post('https://www.googleapis.com/mirror/v1/timeline', body: card.to_json, headers: { 'Content-Type' => 'application/json', 'Authorization' => 'Bearer '+self.access_token })
