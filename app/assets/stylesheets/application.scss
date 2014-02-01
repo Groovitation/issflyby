@@ -105,6 +105,10 @@ li{list-style-type:none;}
   -ms-transform: scale(0);
   -o-transform: scale(0);
   transform: scale(0);
+  &:last-of-type{
+  	padding-left:0.5em;
+  	.description{padding-left:2.5em;}
+  }
 }
 .swiper-slide-visible {
   opacity: 0.5;
@@ -156,6 +160,14 @@ li{list-style-type:none;}
 .swiper-active-switch {
   background: #fff;
 }
-.github{@include awesomebutton($size:1, $color:$lightgray, $padding:0.4); text-decoration:none;}
+.github{
+    @include awesomebutton($size:1, $color:#fff, $padding:0.4); 
+	// text-decoration:none; 
+	// margin: 2.5em 0 0 0;
+	 padding: 1em 0;
+    img{ width:10%;}
+	a{color:$github;}
+
+}
 
 	
