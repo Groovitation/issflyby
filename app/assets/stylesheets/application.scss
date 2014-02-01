@@ -83,11 +83,11 @@ li{list-style-type:none;}
 
 #login{
 	text-align:center; 
-	a{ @include awesomebutton($size:1, $color:$google, $padding:0.4); width: 80%; padding:1em 0.8em;}
+	a{ @include awesomebutton($size:1, $color:$google, $padding:0.4); width: 80%; padding: 0.8em;}
 }
 .swiper-container {
   width: 100%;
-  height: 200px;
+  height: 220px;
   color: #fff;
   text-align: center;
 }
