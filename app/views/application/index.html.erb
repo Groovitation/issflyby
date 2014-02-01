@@ -1,7 +1,7 @@
 <h1 id="appheader">ISS Flyby</h1>
 
 <div class="swiper-container">
-  <ul class="swiper-wrapper">
+  <divul class="swiper-wrapper">
     <li class="swiper-slide">
     	<div class="description"><p>Get cards to your Google Glass as the ISS approaches.</p></div>
 	    <div class="glasscard">
@@ -37,8 +37,31 @@
 	    	</div>
     	</li>
     <% end %>
-  </ul>
+  </div>
 </div>
+<!-- <div class="swiper-container">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide red-slide">
+      <div class="title">Slide 1</div>
+    </div>
+    <div class="swiper-slide blue-slide">
+      <div class="title">Slide 2</div>
+    </div>
+    <div class="swiper-slide orange-slide">
+      <div class="title">Slide 3</div>
+    </div>
+    <div class="swiper-slide blue-slide">
+      <div class="title">Slide 4</div>
+    </div>
+    <div class="swiper-slide red-slide">
+      <div class="title">Slide 5</div>
+    </div>
+    <div class="swiper-slide green-slide">
+      <div class="title">Slide 6</div>
+    </div>
+  </div>
+</div>
+<div class="pagination"></div> -->
 <% if current_user %>
     <a id="demo" href="/demo_card">Send Demo Card</a>
 	<p style="color:green">Signed in with Google.</p>
@@ -56,3 +79,12 @@
 	<div id="login"><%= link_to 'Log In With Google', sign_in_path %></div>
 	
 <% end %>
+<script>
+var mySwiper = new Swiper('.swiper-container',{
+  pagination: '.pagination',
+  paginationClickable: true,
+  centeredSlides: true,
+  slidesPerView: 'auto',
+  watchActiveIndex: true
+})
+</script>

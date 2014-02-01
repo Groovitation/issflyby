@@ -48,7 +48,6 @@ li{list-style-type:none;}
 	z-index: -98;
 
 }
-
 .glasscard{
 	$cardscale:0.5;
 	background-color: transparentize(#fff, 0.9);
@@ -74,14 +73,73 @@ li{list-style-type:none;}
 	text-align:center; 
 	a{ @include awesomebutton($size:1, $color:$google, $padding:1); width: 320px;}
 }
-.description {
-	width:320px; 
-	text-align:center; 
-	margin: 0 auto; 
-	min-height:2.5em;
-	p{display:none;}
+.swiper-container {
+  width: 100%;
+  height: 350px;
+  color: #fff;
+  text-align: center;
+  margin-top: 1em;
 }
-.swiper-container, .swiper-slide {
-  width: 500px;
-  height: 200px;
+.swiper-slide {
+  opacity: 0.4;
+  -webkit-transition: 300ms;
+  -moz-transition: 300ms;
+  -ms-transition: 300ms;
+  -o-transition: 300ms;
+  transition: 300ms;
+  -webkit-transform: scale(0);
+  -moz-transform: scale(0);
+  -ms-transform: scale(0);
+  -o-transform: scale(0);
+  transform: scale(0);
+}
+.swiper-slide-visible {
+  opacity: 0.5;
+  -webkit-transform: scale(0.8);
+  -moz-transform: scale(0.8);
+  -ms-transform: scale(0.8);
+  -o-transform: scale(0.8);
+  transform: scale(0.8);
+}
+.swiper-slide-active {
+  top: 0;
+  opacity: 1;
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
+}
+
+.pagination {
+  z-index: 20;
+  left: 0px;
+  width: 100%;
+  text-align: center;
+  margin-top: 1em;
+}
+.swiper-pagination-switch {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 8px;
+  background: #aaa;
+  margin-right: 8px;
+  cursor: pointer;
+  -webkit-transition: 300ms;
+  -moz-transition: 300ms;
+  -ms-transition: 300ms;
+  -o-transition: 300ms;
+  transition: 300ms;
+  opacity: 0;
+  position: relative;
+  top: -50px;
+}
+.swiper-visible-switch {
+  opacity: 1;
+  top: 0;
+  background: #aaa;
+}
+.swiper-active-switch {
+  background: #fff;
 }
