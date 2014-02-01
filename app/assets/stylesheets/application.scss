@@ -77,9 +77,10 @@ li{list-style-type:none;}
 		font-weight:300;
 		padding: 0 0.6em 0.6em 0.6em;
 	}
-	a{color:#fff;}
+	a{color:#fff; font-size:0.7em;}
 	.source{float:left;}
 	.time{float:right;}
+	.twitter_icon{width:17%; padding: 0.6em 0.3em 0 0;}
 }
 
 #login{
@@ -156,6 +157,5 @@ li{list-style-type:none;}
   background: #fff;
 }
 .github{@include awesomebutton($size:1, $color:$lightgray, $padding:0.4); text-decoration:none;}
-#mashallah{
-	a{font-size:0.7em;}
-}
+
+	
