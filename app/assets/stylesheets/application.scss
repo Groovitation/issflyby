@@ -65,10 +65,18 @@ li{list-style-type:none;}
 		width: 62%;
 		padding: 0.8em;
 	}
-	footer{font-family: 'Roboto', sans-serif; bottom:0; right: 0; position: absolute; width: 62%; font-size: 0.9em; font-weight:300; }
-	.source{float:left; padding:0 0 0.6em 0.6em;}
-	.time{float:right; padding:0 0.6em 0.6em 0;}
-//    z-index: -99;
+	footer{
+		font-family: 'Roboto', sans-serif; 
+		bottom:0; 
+		right: 0; 
+		position: absolute;
+		width: 62%; 
+		font-size: 0.9em; 
+		font-weight:300;
+		padding: 0 0.6em 0.6em 0.6em;
+	}
+	.source{float:left;}
+	.time{float:right;}
 }
 .description{ width:640px*$cardscale;}
 #login{
