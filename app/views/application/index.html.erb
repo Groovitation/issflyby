@@ -111,7 +111,13 @@
 			<h3>Upcoming passes:</h3>
 			<ul>	
 			<% current_user.passes.each do |pass| %>
-				<li><%= pass.risetime.to_s %></li>
+				<li>
+                  <%= pass.risetime.to_s %>
+                  <!--mark passes coming up soon that weather will spoil-->
+                      <% if pass.risetime - Time.now.utc < 3.hours && !pass.weather_permits %>
+                        <span class="cloudy">It will be too cloudy to see this pass!</span>
+                      <% end %>
+                </li>
 			<% end %>
 			</ul>
 		<% end %>
