@@ -25,7 +25,14 @@
 
   ga('create', 'UA-38755804-3', 'issflyby.com');
   ga('send', 'pageview');
-
+  var loginLink = document.getElementById('#login_link');
+  addListener(loginLink, 'click', function() {
+    ga('send', 'event', 'button', 'click', 'login_with_google');
+  });
+  var githubLink = document.getElementById('#github_link');
+  addListener(githubLink, 'click', function() {
+    ga('send', 'event', 'button', 'click', 'iss_github');
+  });
 </script>
 </body>
 </html>

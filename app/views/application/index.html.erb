@@ -88,13 +88,13 @@
     			    </p>
     			    <footer><span class="source">ISS Flyby</span><span class="time">3 mins ago</span></footer>
     		    </div>
-    		
+    		</div>
     	<% end %>
 		<div class="swiper-slide swiper-slide-visible">
 			<div class="description"><p>Developers, send us ideas and code.</p></div>
-		    <div class="github"><a href="https://github.com/mkbehbehani/issflyby"><%= image_tag("github.png") %> ISS Flyby Github</a></div>
+		    <div class="github"><a href="https://github.com/mkbehbehani/issflyby" id="github_link"><%= image_tag("github.png") %> ISS Flyby Github</a></div>
 		</div>
-	</div>
+
 
 
 
@@ -116,7 +116,7 @@
 			</ul>
 		<% end %>
 <% else %>
-	<div id="login"><%= link_to 'Log In With Google', sign_in_path %></div>
+	<div id="login"><%= link_to 'Log In With Google', sign_in_path, id: 'login_link' %></div>
 	
 <% end %>
 <script>
