@@ -1,6 +1,26 @@
 <h1 id="appheader">ISS Flyby</h1>
 
-<div class="swiper-container">
+<% if current_user %>
+    <a id="demo" href="/demo_card">Send Demo Card</a>
+	<p style="color:green">Signed in with Google.</p>
+		<% if current_user.passes.count == 0 %>
+			<p>The next 100 passes overhead won't be visible with the naked eye. We'll keep looking and notify you via Glass!</p>
+		<% else %>
+			<h3>Upcoming passes:</h3>
+			<ul>	
+			<% current_user.passes.each do |pass| %>
+				<li>
+                  <%= pass.risetime.to_s %>
+                  <!--mark passes coming up soon that weather will spoil-->
+                      <% if pass.risetime - Time.now.utc < 3.hours && !pass.weather_permits %>
+                        <span class="cloudy">It will be too cloudy to see this pass!</span>
+                      <% end %>
+                </li>
+			<% end %>
+			</ul>
+		<% end %>
+<% else %>
+	<div class="swiper-container">
   <div class="swiper-wrapper">
     <div class="swiper-slide swiper-slide-visible">
     	<div class="description"><p>Get cards to your Google Glass as the ISS approaches.</p></div>
@@ -94,34 +114,9 @@
 			<div class="description"><p>Developers, send us ideas and code.</p></div>
 		    <div class="github"><a href="https://github.com/mkbehbehani/issflyby" id="github_link"><%= image_tag("github.png") %> ISS Flyby Github</a></div>
 		</div>
-
-
-
-
-
   </div>
 </div>
 <div class="pagination"></div>
-<% if current_user %>
-    <a id="demo" href="/demo_card">Send Demo Card</a>
-	<p style="color:green">Signed in with Google.</p>
-		<% if current_user.passes.count == 0 %>
-			<p>The next 100 passes overhead won't be visible with the naked eye. We'll keep looking and notify you via Glass!</p>
-		<% else %>
-			<h3>Upcoming passes:</h3>
-			<ul>	
-			<% current_user.passes.each do |pass| %>
-				<li>
-                  <%= pass.risetime.to_s %>
-                  <!--mark passes coming up soon that weather will spoil-->
-                      <% if pass.risetime - Time.now.utc < 3.hours && !pass.weather_permits %>
-                        <span class="cloudy">It will be too cloudy to see this pass!</span>
-                      <% end %>
-                </li>
-			<% end %>
-			</ul>
-		<% end %>
-<% else %>
 	<div id="login"><%= link_to 'Log In With Google', sign_in_path, id: 'login_link' %></div>
 	
 <% end %>
