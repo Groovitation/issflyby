@@ -1,5 +1,5 @@
 @import "neat-helpers";
-// Bourbon Neat outer-container max-width
+// Bourbon Neat outer-container max-device-width
 $max-width: 1400px;
 
 $mobile-size:320px;
@@ -10,8 +10,8 @@ $largedesktop-size:1600px;
 $cinemadisplay-size:1800px;
 
 // Bourbon Neat Breakpoints
-$mobile: new-breakpoint(min-device-width $mobile-size, 12);
-$ipad: new-breakpoint(min-device-width $tablet-width max-device-width $tablet-height, 12);
-$desktop: new-breakpoint(min-width $desktop-size, 12);
-$largedesktop: new-breakpoint(min-width $largedesktop-size, 12);
-$cinemadisplay: new-breakpoint(min-width $cinemadisplay-size, 12);
+$mobile: new-breakpoint(min-device-width $mobile-size max-device-width ($tablet-width - 1px), 12);
+$ipad: new-breakpoint(min-device-width $tablet-width max-device-width ($desktop-size - 1px), 12);
+$desktop: new-breakpoint(min-device-width $desktop-size, max-device-width ($largedesktop-size - 1px), 12);
+$largedesktop: new-breakpoint(min-device-width $largedesktop-size, max-device-width ($cinemadisplay-size - 1px), 12);
+$cinemadisplay: new-breakpoint(min-device-width $cinemadisplay-size, 12);
