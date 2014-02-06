@@ -9,16 +9,11 @@ $desktop-max-width:2000px;
 $desktop-min-width:1280px;
 $tablet-max-width:1279px;
 $tablet-min-width:767px;
-$mobile-max-width: 766px;
-$mobile-min-width:250px;
-
-
-
-
-
+$largemobile-max-width: 766px;
+$largemobile-min-width:321px;
 
 // Bourbon Neat Breakpoints
-$mobile: new-breakpoint(min-device-width $mobile-min-width max-device-width $mobile-max-width, 12);
+$largemobile: new-breakpoint(min-device-width $largemobile-min-width max-device-width $largemobile-max-width, 12);
 $ipad: new-breakpoint(min-device-width $tablet-min-width max-device-width $tablet-max-width, 12);
 $desktop: new-breakpoint(min-device-width $desktop-min-width max-device-width $desktop-max-width , 12);
 $largedesktop: new-breakpoint(min-device-width $largedesktop-min-width max-device-width $largedesktop-max-width, 12);
