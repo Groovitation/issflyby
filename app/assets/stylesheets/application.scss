@@ -11,6 +11,9 @@ $cardscale:0.37;
   @include media($largemobile) {
     $cardscale:0.5;
   }
+  @include media($smalltablet) {
+    $cardscale:0.8;
+  }
 html, body { height: 100%; width: 100%; margin: 0; }
 body{
 	@include outer-container;
@@ -34,6 +37,10 @@ h1{
   @include media($largemobile) {
     font-size:3em;
   }
+  @include media($smalltablet) {
+    font-size:5em;
+  }
+  
 }
 h2, h3{ 
   font-size:1.2em;
@@ -61,7 +68,9 @@ li{list-style-type:none;}
   @include media($largemobile) {
     font-size:1em;
   }
-
+  @include media($smalltablet) {
+    font-size:1.5em;
+  }
 }
 .glasscard{
 	background-color: transparentize(#fff, 0.9);
@@ -85,6 +94,10 @@ li{list-style-type:none;}
       font-size: 1.3em;
       padding: 0.5em;
     }
+    @include media($smalltablet) {
+      font-size:2em;
+    }
+    
 	}
 	footer{
 		font-family: 'Roboto', sans-serif; 
@@ -97,6 +110,9 @@ li{list-style-type:none;}
 		padding: 0 0.6em 0.6em 0.6em;
     @include media($largemobile) {
       font-size: 0.9em; 
+    }
+    @include media($smalltablet) {
+      font-size:1.2em;
     }
 	}
 	a{color:#fff; font-size:0.7em;}
@@ -113,6 +129,12 @@ li{list-style-type:none;}
       padding:1.2em;
       margin-top: 1.2em;
     }
+    @include media($smalltablet) {
+      padding:2em;
+      margin-top: 2.3em;
+      font-size: 1.2em;
+      width: 86%;
+    }
   }
 
 }
@@ -123,6 +145,9 @@ li{list-style-type:none;}
   text-align: center;
   @include media($largemobile) {
     height: 270px;
+  }
+  @include media($smalltablet) {
+    height:395px;
   }
 }
 .swiper-slide {
@@ -139,7 +164,13 @@ li{list-style-type:none;}
   transform: scale(0);
   &:last-of-type{
   	padding-left:0.5em;
-  	.description{padding-left:2.5em;}
+  	.description{
+      padding-left:2.5em;
+      @include media($largemobile) {
+        padding-left:0em;
+      }
+    }
+
   }
 }
 .swiper-slide-visible {
