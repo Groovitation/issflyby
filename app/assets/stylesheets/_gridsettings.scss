@@ -2,16 +2,24 @@
 // Bourbon Neat outer-container max-device-width
 $max-width: 1400px;
 
-$mobile-size:320px;
-$tablet-width:720px;
-$tablet-height:1024px;
-$desktop-size:1200px ;
-$largedesktop-size:1600px;
-$cinemadisplay-size:1800px;
+$cinemadisplay-min-width:2500px;
+$largedesktop-max-width:2499px;
+$largedesktop-min-width:2001px;
+$desktop-max-width:2000px;
+$desktop-min-width:1280px;
+$tablet-max-width:1279px;
+$tablet-min-width:767px;
+$mobile-max-width: 766px;
+$mobile-min-width:250px;
+
+
+
+
+
 
 // Bourbon Neat Breakpoints
-$mobile: new-breakpoint(min-device-width $mobile-size max-device-width ($tablet-width - 1px), 12);
-$ipad: new-breakpoint(min-device-width $tablet-width max-device-width ($desktop-size - 1px), 12);
-$desktop: new-breakpoint(min-device-width $desktop-size, max-device-width ($largedesktop-size - 1px), 12);
-$largedesktop: new-breakpoint(min-device-width $largedesktop-size, max-device-width ($cinemadisplay-size - 1px), 12);
-$cinemadisplay: new-breakpoint(min-device-width $cinemadisplay-size, 12);
+$mobile: new-breakpoint(min-device-width $mobile-min-width max-device-width $mobile-max-width, 12);
+$ipad: new-breakpoint(min-device-width $tablet-min-width max-device-width $tablet-max-width, 12);
+$desktop: new-breakpoint(min-device-width $desktop-min-width max-device-width $desktop-max-width , 12);
+$largedesktop: new-breakpoint(min-device-width $largedesktop-min-width max-device-width $largedesktop-max-width, 12);
+$cinemadisplay: new-breakpoint(min-device-width $cinemadisplay-min-width max-device-width 3000px,  12);

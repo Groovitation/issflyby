@@ -167,6 +167,9 @@ li{list-style-type:none;}
 	 padding: 1em 0;
     img{ width:10%;}
 	a{color:$github;}
+  @include media($mobile) {
+     @include span-columns(12);
+   }
 
 }
 
