@@ -14,7 +14,9 @@ $cardscale:0.37;
   @include media($smalltablet) {
     $cardscale:0.8;
   }
-
+  @include media($largedesktop) {
+    $cardscale:1;
+  }
 html, body { height: 100%; width: 100%; margin: 0; }
 body{
 	@include outer-container;
@@ -193,7 +195,9 @@ li{list-style-type:none;}
   }
   @include media($desktop) {
     height:50%;
+    max-height: 470px;
   }
+
 }
 .swiper-slide {
   opacity: 0.4;
