@@ -1,11 +1,8 @@
 <h1 id="appheader">ISS Flyby</h1>
-<% if flash[:notice] %>
-    <div class="notice"><%= flash[:notice] %></div>
-<% end %>
 <% if current_user %>
     <section>
     <a id="demo" href="/demo_card">Send Demo Card</a>
-	<p style="color:green">Signed in with Google.</p>
+	<p >Signed in with Google.</p>
 		<% if current_user.passes.count == 0 %>
 			<p>The next 100 passes overhead won't be visible with the naked eye. We'll keep looking and notify you via Glass!</p>
 		<% else %>
@@ -14,6 +11,7 @@
 			<% current_user.passes.each do |pass| %>
 				<li>
                   <%= pass.risetime.to_s %>
+                  <%= distance_of_time_in_words_to_now(pass.risetime, include_seconds_or_options = {}) %>
                   <!--mark passes coming up soon that weather will spoil-->
                       <% if pass.risetime - Time.now.utc < 3.hours && !pass.weather_permits %>
                         <span class="cloudy">It will be too cloudy to see this pass!</span>
