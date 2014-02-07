@@ -10,9 +10,9 @@ $desktop-min-width:1026px;
 $ipad-max-width:1025px;
 $ipad-min-width:767px;
 $smalltablet-max-width:766px;
-$smalltablet-min-width:600px;
+$smalltablet-min-width:601px;
 $largemobile-max-width: 599px;
-$largemobile-min-width:321px;
+$largemobile-min-width:319px;
 
 // Bourbon Neat Breakpoints
 $largemobile: new-breakpoint(min-device-width $largemobile-min-width max-device-width $largemobile-max-width, 12);

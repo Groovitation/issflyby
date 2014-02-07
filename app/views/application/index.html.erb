@@ -1,6 +1,9 @@
 <h1 id="appheader">ISS Flyby</h1>
-
+<% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+<% end %>
 <% if current_user %>
+    <section>
     <a id="demo" href="/demo_card">Send Demo Card</a>
 	<p style="color:green">Signed in with Google.</p>
 		<% if current_user.passes.count == 0 %>
@@ -19,6 +22,7 @@
 			<% end %>
 			</ul>
 		<% end %>
+    </section>
 <% else %>
 
 <div class="swiper-container">

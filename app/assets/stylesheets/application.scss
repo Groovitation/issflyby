@@ -8,15 +8,11 @@
 @import "swiper";
 //ALL STYLES ARE MOBILE-FIRST, BASED ON IPHONE 4
 $cardscale:0.37;
-  @include media($largemobile) {
-    $cardscale:0.5;
-  }
-  @include media($smalltablet) {
-    $cardscale:0.8;
-  }
-  @include media($largedesktop) {
-    $cardscale:1;
-  }
+$largemobile-cardscale:0.5;
+$smalltablet-cardscale:0.8;
+$ipad-cardscale:0.8;
+$largedesktop-cardscale:1;
+
 html, body { height: 100%; width: 100%; margin: 0; }
 body{
 	@include outer-container;
@@ -75,26 +71,41 @@ li{list-style-type:none;}
   width:640px*$cardscale;
   @include media($largemobile) {
     font-size:1em;
+    width:640px*$largemobile-cardscale;
   }
   @include media($smalltablet) {
     font-size:1.5em;
+    width:640px*$smalltablet-cardscale;
   }
   @include media($ipad) {
     font-size:1.7em;
+    width:640px*$ipad-cardscale;
   }
   @include media($desktop) {
     font-size:1.5em;
+    width:640px*$largedesktop-cardscale;
   }
 
 }
 .glasscard{
+
 	background-color: transparentize(#fff, 0.9);
 	width: 640px*$cardscale;
 	height: 360px*$cardscale;
 	margin: 1em auto 0;
+  @include media($largemobile) {
+    width:640px*$largemobile-cardscale;
+    height: 360px*$largemobile-cardscale;
+  }
+  @include media($smalltablet) {
+    width:640px*$smalltablet-cardscale;
+    height: 360px*$smalltablet-cardscale;
+  }
   @include media($ipad) {
     font-size:1.7em;
     margin: 1.5em auto 0;
+    width:640px*$ipad-cardscale;
+    height: 360px*$ipad-cardscale;
   }
 	img{width:37.5%; height:100%;float: left;}
 	p{
