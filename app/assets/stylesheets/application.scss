@@ -14,6 +14,9 @@ $cardscale:0.37;
   @include media($smalltablet) {
     $cardscale:0.8;
   }
+  // @include media($ipad) {
+  //   $cardscale:1;
+  // }
 html, body { height: 100%; width: 100%; margin: 0; }
 body{
 	@include outer-container;
@@ -40,7 +43,10 @@ h1{
   @include media($smalltablet) {
     font-size:5em;
   }
-  
+  @include media($ipad) {
+    padding: 0.5em 0;
+    font-size:3em;
+  }
 }
 h2, h3{ 
   font-size:1.2em;
@@ -71,14 +77,19 @@ li{list-style-type:none;}
   @include media($smalltablet) {
     font-size:1.5em;
   }
+  @include media($ipad) {
+    font-size:1.7em;
+  }
+
 }
 .glasscard{
 	background-color: transparentize(#fff, 0.9);
 	width: 640px*$cardscale;
 	height: 360px*$cardscale;
 	margin: 1em auto 0;
-  @include media($largemobile) {
-    margin: 1em auto 0;
+  @include media($ipad) {
+    font-size:1.7em;
+    margin: 1.5em auto 0;
   }
 	img{width:37.5%; height:100%;float: left;}
 	p{
@@ -97,7 +108,10 @@ li{list-style-type:none;}
     @include media($smalltablet) {
       font-size:2em;
     }
-    
+    @include media($ipad) {
+      font-size:1.2em;
+      padding: 0.5em;
+    }
 	}
 	footer{
 		font-family: 'Roboto', sans-serif; 
@@ -113,6 +127,9 @@ li{list-style-type:none;}
     }
     @include media($smalltablet) {
       font-size:1.2em;
+    }
+    @include media($ipad) {
+      font-size:0.8em;
     }
 	}
 	a{color:#fff; font-size:0.7em;}
@@ -135,6 +152,12 @@ li{list-style-type:none;}
       font-size: 1.2em;
       width: 86%;
     }
+    @include media($ipad) {
+      padding:1em;
+      margin-top: 1.5em;
+      font-size: 1.2em;
+      width: 60%;
+    }
   }
 
 }
@@ -148,6 +171,9 @@ li{list-style-type:none;}
   }
   @include media($smalltablet) {
     height:395px;
+  }
+  @include media($ipad) {
+    height:420px;
   }
 }
 .swiper-slide {
