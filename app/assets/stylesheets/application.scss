@@ -195,6 +195,9 @@ li{list-style-type:none;}
       @include media($largemobile) {
         padding-left:0em;
       }
+      @include media($ipad) {
+        padding-left:0em;
+      }
     }
 
   }
@@ -250,13 +253,13 @@ li{list-style-type:none;}
   background: #fff;
 }
 .github{
-    @include awesomebutton($size:1, $color:#fff, $padding:0.4); 
-	// text-decoration:none; 
-	// margin: 2.5em 0 0 0;
-	 padding: 1em 0;
-    img{ width:10%;}
+  @include awesomebutton($size:1, $color:#fff, $padding:0.4); 
+  padding: 1em 0;
+  img{ width:10%;}
 	a{color:$github;}
-
+  @include media($ipad) {
+    margin: 2em 0;
+  }
 
 }
 
