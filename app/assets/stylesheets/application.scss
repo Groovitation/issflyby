@@ -14,9 +14,7 @@ $cardscale:0.37;
   @include media($smalltablet) {
     $cardscale:0.8;
   }
-  // @include media($ipad) {
-  //   $cardscale:1;
-  // }
+
 html, body { height: 100%; width: 100%; margin: 0; }
 body{
 	@include outer-container;
@@ -26,7 +24,6 @@ body{
 }
 img{
     max-width: 100%;
-    // border-top: 4px solid $gray;
 }
 section{
 	@include span-columns(12);
@@ -44,6 +41,10 @@ h1{
     font-size:5em;
   }
   @include media($ipad) {
+    padding: 0.5em 0;
+    font-size:3em;
+  }
+  @include media($desktop) {
     padding: 0.5em 0;
     font-size:3em;
   }
@@ -67,7 +68,6 @@ li{list-style-type:none;}
 	right: -3%;
 	top: 10%;
 	z-index: -98;
-
 }
 .description{ 
   width:640px*$cardscale;
@@ -79,6 +79,9 @@ li{list-style-type:none;}
   }
   @include media($ipad) {
     font-size:1.7em;
+  }
+  @include media($desktop) {
+    font-size:1.5em;
   }
 
 }
@@ -112,6 +115,10 @@ li{list-style-type:none;}
       font-size:1.2em;
       padding: 0.5em;
     }
+    @include media($desktop) {
+      font-size:2em;
+      padding: 0.5em;
+    }
 	}
 	footer{
 		font-family: 'Roboto', sans-serif; 
@@ -130,6 +137,9 @@ li{list-style-type:none;}
     }
     @include media($ipad) {
       font-size:0.8em;
+    }
+    @include media($desktop) {
+      font-size:1.2em;
     }
 	}
 	a{color:#fff; font-size:0.7em;}
@@ -158,8 +168,14 @@ li{list-style-type:none;}
       font-size: 1.2em;
       width: 60%;
     }
+    @include media($desktop) {
+      padding:1em;
+      margin-top: 1.5em;
+      font-size: 1.2em;
+      width: 35%;
+      max-width: 550px;
+    }
   }
-
 }
 .swiper-container {
   width: 100%;
@@ -174,6 +190,9 @@ li{list-style-type:none;}
   }
   @include media($ipad) {
     height:420px;
+  }
+  @include media($desktop) {
+    height:50%;
   }
 }
 .swiper-slide {
@@ -196,6 +215,9 @@ li{list-style-type:none;}
         padding-left:0em;
       }
       @include media($ipad) {
+        padding-left:0em;
+      }
+      @include media($desktop) {
         padding-left:0em;
       }
     }
@@ -260,7 +282,9 @@ li{list-style-type:none;}
   @include media($ipad) {
     margin: 2em 0;
   }
-
+  @include media($desktop) {
+    margin: 2em 0;
+  }
 }
 
 	
