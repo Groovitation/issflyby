@@ -11,6 +11,7 @@ $cardscale:0.37;
 $largemobile-cardscale:0.5;
 $smalltablet-cardscale:0.8;
 $ipad-cardscale:0.8;
+$desktop-cardscale:1;
 $largedesktop-cardscale:1;
 
 html, body { height: 100%; width: 100%; margin: 0; }
@@ -106,6 +107,14 @@ li{list-style-type:none;}
     margin: 1.5em auto 0;
     width:640px*$ipad-cardscale;
     height: 360px*$ipad-cardscale;
+  }
+  @include media($desktop) {
+    width:640px*$desktop-cardscale;
+    height: 360px*$desktop-cardscale;
+  }
+  @include media($largedesktop) {
+    width:640px*$largedesktop-cardscale;
+    height: 360px*$largedesktop-cardscale;
   }
 	img{width:37.5%; height:100%;float: left;}
 	p{
