@@ -24,7 +24,6 @@ img{
     max-width: 100%;
 }
 section{
-  @include span-columns(12);
 	img{margin: 0 auto; display:block;}
 }
 h1{
@@ -318,4 +317,15 @@ li{list-style-type:none;}
   @include awesomebutton($size:1, $color: $spacered, $padding:0.4); 
   @include span-columns(10);
   @include shift(1);
+}
+.passes{
+  @include span-columns(10);
+  @include shift(1);
+}
+.pass{
+  h3{padding: 0; margin-top: 0;}
+  padding:1em;
+  background-color: transparentize(black, 0.8);
+  display: block;
+  margin: 0.5em 0;
 }

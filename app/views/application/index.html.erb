@@ -1,27 +1,30 @@
 <h1 id="appheader">ISS Flyby</h1>
 <% if current_user %>
+
     <a id="demo" href="/demo_card">Send Demo Card</a>
     <br>
-    <section>
+       <section class="passes">
 		<% if current_user.passes.count == 0 %>
 			<p>The next 100 passes overhead won't be visible with the naked eye. We'll keep looking and notify you via Glass!</p>
 		<% else %>
-			<h3>Upcoming passes:</h3>
-			<ul>	
+			<h2>Upcoming Flybys:</h3>
 			<% current_user.passes.each do |pass| %>
-				<li>
-                  <%= pass.risetime.to_s %>
-                  <%= distance_of_time_in_words_to_now(pass.risetime, include_seconds_or_options = {}) %>
-                  <!--mark passes coming up soon that weather will spoil-->
-                      <% if pass.risetime - Time.now.utc < 3.hours && !pass.weather_permits %>
-                        <span class="cloudy">It will be too cloudy to see this pass!</span>
-                      <% end %>
-                </li>
+                    <div class="pass">
+                      <h3>In <%= distance_of_time_in_words_to_now(pass.risetime, include_seconds_or_options = {}) %></h3>
+                      <%= pass.duration.to_s %> minute pass
+                      <br>
+                      <%= pass.risetime.to_time.to_formatted_s(:time) %> UTC - <%= pass.risetime.to_date.to_formatted_s(:long) %>
+                      
+                      <!--mark passes coming up soon that weather will spoil-->
+                          <% if pass.risetime - Time.now.utc < 3.hours && !pass.weather_permits %>
+                            <span class="cloudy">It will be too cloudy to see this pass!</span>
+                          <% end %>
+                    </div>
 			<% end %>
-			</ul>
 		<% end %>
+        </section>
     <%= link_to "Sign Out", sign_out_path, id:"sign_out"%>
-    </section>
+   
     
 <% else %>
 
