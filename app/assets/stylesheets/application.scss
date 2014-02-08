@@ -317,6 +317,14 @@ li{list-style-type:none;}
   @include awesomebutton($size:1, $color: $spacered, $padding:0.4); 
   @include span-columns(10);
   @include shift(1);
+  position: absolute;
+  bottom: 1em;
+  &:hover {
+  top: auto;
+  }
+  &:active {
+  top: auto;
+  }
 }
 .passes{
   @include span-columns(10);
