@@ -329,6 +329,11 @@ li{list-style-type:none;}
 .passes{
   @include span-columns(10);
   @include shift(1);
+  height: 50%;
+  overflow-y:auto;
+  &::-webkit-scrollbar { 
+    display: none; 
+  }
 }
 .pass{
   h3{padding: 0; margin-top: 0;}
