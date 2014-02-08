@@ -1,8 +1,8 @@
 <h1 id="appheader">ISS Flyby</h1>
 <% if current_user %>
-    <section>
     <a id="demo" href="/demo_card">Send Demo Card</a>
-	<p >Signed in with Google.</p>
+    <br>
+    <section>
 		<% if current_user.passes.count == 0 %>
 			<p>The next 100 passes overhead won't be visible with the naked eye. We'll keep looking and notify you via Glass!</p>
 		<% else %>
@@ -20,8 +20,9 @@
 			<% end %>
 			</ul>
 		<% end %>
+    <%= link_to "Sign Out", sign_out_path, id:"sign_out"%>
     </section>
-    <%= link_to "Sign Out", sign_out_path %>
+    
 <% else %>
 
 <div class="swiper-container">

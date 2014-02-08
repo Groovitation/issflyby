@@ -24,7 +24,7 @@ img{
     max-width: 100%;
 }
 section{
-	@include span-columns(12);
+  @include span-columns(12);
 	img{margin: 0 auto; display:block;}
 }
 h1{
@@ -309,5 +309,13 @@ li{list-style-type:none;}
     margin: 2em 0;
   }
 }
-
-	
+#demo{
+  @include awesomebutton($size:1, $color:$lightblue, $padding:0.4); 
+  @include span-columns(10);
+  @include shift(1);
+}
+#sign_out{
+  @include awesomebutton($size:1, $color: $spacered, $padding:0.4); 
+  @include span-columns(10);
+  @include shift(1);
+}
