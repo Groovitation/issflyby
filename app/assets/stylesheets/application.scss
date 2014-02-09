@@ -327,8 +327,6 @@ li{list-style-type:none;}
   }
 }
 .passes{
-  @include span-columns(10);
-  @include shift(1);
   height: 50%;
   overflow-y:auto;
   &::-webkit-scrollbar { 
@@ -341,4 +339,8 @@ li{list-style-type:none;}
   background-color: transparentize(black, 0.8);
   display: block;
   margin: 0.5em 0;
+}
+.offset{   
+  @include span-columns(10);
+  @include shift(1);
 }
