@@ -240,7 +240,9 @@ li{list-style-type:none;}
         }
     }
   }
-  .swiper-container{height:230px;}
+  .swiper-container{
+    @include media($ipad) {height:230px;}
+  }
 }
 .swiper-slide {
   opacity: 0.4;
