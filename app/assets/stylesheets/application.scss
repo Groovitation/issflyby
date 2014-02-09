@@ -240,9 +240,7 @@ li{list-style-type:none;}
         }
     }
   }
-  .swiper-container{
-    @include media($ipad) {height:230px;}
-  }
+
 }
 .swiper-slide {
   opacity: 0.4;
@@ -384,3 +382,5 @@ li{list-style-type:none;}
     @include shift(3);
   }
 }
+#interior-container{@include media($ipad) {height:230px;}}
+#interior-wrapper{@include media($ipad) {height:230px;}}
