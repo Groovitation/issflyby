@@ -13,6 +13,7 @@ $smalltablet-max-width:766px;
 $smalltablet-min-width:551px;
 $largemobile-max-width: 550px;
 $largemobile-min-width:319px;
+$sabre-pyramid:1337px;
 
 // Bourbon Neat Breakpoints
 $largemobile: new-breakpoint(min-device-width $largemobile-min-width max-device-width $largemobile-max-width, 12);
