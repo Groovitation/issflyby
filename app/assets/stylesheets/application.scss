@@ -316,20 +316,6 @@ li{list-style-type:none;}
     margin: 2em 0;
   }
 }
-#demo{
-  @include awesomebutton($size:1, $color:$lightblue, $padding:0.4); 
-}
-#sign_out{
-  @include awesomebutton($size:1, $color: $spacered, $padding:0.4); 
-  position: absolute;
-  bottom: 1em;
-  &:hover {
-  top: auto;
-  }
-  &:active {
-  top: auto;
-  }
-}
 .passes{
   height: 50%;
   overflow-y:auto;
@@ -349,6 +335,23 @@ li{list-style-type:none;}
   background-color: transparentize(black, 0.8);
   display: block;
   margin: 0.5em 0;
+}
+
+.bluebutton{
+  @include awesomebutton($size:1, $color:$lightblue, $padding:0.4); 
+}
+.redbutton{
+  @include awesomebutton($size:1, $color: $spacered, $padding:0.4); 
+}
+.to-bottom{
+  position: absolute;
+  bottom: 1em;
+  &:hover {
+  top: auto;
+  }
+  &:active {
+  top: auto;
+  }
 }
 .offset{   
   @include span-columns(10);

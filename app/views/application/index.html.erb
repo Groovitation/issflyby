@@ -21,7 +21,7 @@
         <% end %>
       </div>
     </div>
-    <a id="demo" href="/demo_card" class="offset">Send Demo Card to Glass</a>
+    <%= link_to "Send Demo Card to Glass", demo_card_path, class: "bluebutton offset" %>
     <br>
        <% unless current_user.passes.count == 0 %>
         <h2 class="offset">Upcoming Flybys:</h2>
@@ -46,7 +46,7 @@
 			<% end %>
 		<% end %>
         </section>
-    <%= link_to "Sign Out", sign_out_path, id:"sign_out", class: "offset" %>
+    <%= link_to "Sign Out", sign_out_path, class: "redbutton to-bottom offset" %>
    
     
 <% else %>
