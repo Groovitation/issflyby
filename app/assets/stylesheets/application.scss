@@ -217,7 +217,14 @@ li{list-style-type:none;}
   }
 
 }
-.inner{display:none;}
+.inner{
+  @include media($largemobile) {
+    display:none;
+  }
+  @include media($smalltablet) {
+    display:none;
+  }
+}
 .swiper-slide {
   opacity: 0.4;
   -webkit-transition: 300ms;
@@ -332,6 +339,12 @@ li{list-style-type:none;}
   overflow-y:auto;
   &::-webkit-scrollbar { 
     display: none; 
+  }
+  @include media($ipad) {
+    height: 40%;
+  }
+  @include media($desktop) {
+    height: 40%;
   }
 }
 .pass{
