@@ -2,7 +2,7 @@
 <% if current_user %>
     <div class="swiper-container inner">
       <div class="swiper-wrapper inner">
-        <div class="swiper-slide swiper-slide-visible inner">
+        <div class="swiper-slide swiper-slide-visible swiper-slide-active inner">
             <div class="glasscard inner">
                 <%= image_tag("iss.jpg") %>
                 <p>International Space Station flyby coming up <%= @flyby_time.strftime(" at %I:%M %p CST!") %></p>
