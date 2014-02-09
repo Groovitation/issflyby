@@ -1,6 +1,45 @@
 <h1 id="appheader">ISS Flyby</h1>
 <% if current_user %>
+    <div class="swiper-container inner">
+      <div class="swiper-wrapper inner">
+        <div class="swiper-slide swiper-slide-visible inner">
+            <div class="description inner"><p>Get cards to your Google Glass as the ISS approaches.</p></div>
+            <div class="glasscard inner">
+                <%= image_tag("iss.jpg") %>
+                <p>International Space Station flyby coming up <%= @flyby_time.strftime(" at %I:%M %p CST!") %></p>
+                <footer><span class="source inner">ISS Flyby</span><span class="time inner">3 mins ago</span></footer>
+            </div>
+        </div>
+        <% @spacepeople.each.with_index do |spaceperson, index| %>
+            <div class="swiper-slide swiper-slide-visible inner">
+                <% if index == 0 %>
+                    <div class="description inner"><p>See who's on the ISS at that moment. </p></div>
+                <% end %>
+                <% if index == 1  %>
+                    <div class="description inner"><p>Flybys are determined by your Google Glass' position.</p></div>
+                <% end %>
+                <% if index == 2  %>
+                    <div class="description inner"><p> Sunrise, sunset and even clouds are factored in. </p></div>
+                <% end %>
+                <% if index == 3  %>
+                    <div class="description inner"><p>You'll only receive flybys worth running outside for.</p></div>
+                <% end %>
+                <% if index == 4  %>
+                    <div class="description inner"><p>20 mins later the cards disappear, leaving your timeline clean.</p></div>
+                <% end %>
+                <% if index == 5  %>
+                    <div class="description inner"><p>To start, connect your Google Glass by logging in below.</p></div>
+                <% end %>
+                <div class="glasscard inner">
+                    <%= image_tag(spaceperson.name.split("\ ").last.downcase+".jpg") %>
+                    <p><%= spaceperson.name %> is on board.</p>
+                <footer><span class="source inner">ISS Flyby</span><span class="time inner">3 mins ago</span></footer>
+                </div>
+            </div>
 
+        <% end %>
+      </div>
+    </div>
     <a id="demo" href="/demo_card">Send Demo Card</a>
     <br>
        <% unless current_user.passes.count == 0 %>
