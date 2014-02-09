@@ -61,7 +61,8 @@ class PassesController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+  def duration_in_minutes
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_pass
@@ -70,6 +71,6 @@ class PassesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pass_params
-      params.require(:pass).permit(:risetime, :duration, :user_id)
+      params.require(:pass).permit(:risetime, :duration, :user_id, :duration_in_minutes)
     end
 end

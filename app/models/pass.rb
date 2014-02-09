@@ -5,7 +5,9 @@ class Pass < ActiveRecord::Base
   has_many :cards, dependent: :destroy
 
 	before_save :sun_permits
-
+  def duration_in_minutes
+    return ChronicDuration::output(self.duration.to_i, :format => :long)
+  end
 	def weather_permits
     #	TODO check for cloudiness at the location and return false if it's cloudy
     begin
@@ -60,14 +62,14 @@ class Pass < ActiveRecord::Base
       local_risetime = self.risetime.in_time_zone(self.user.timezone)
 
       if card = self.user.send_glass_card({html:"<article>
-  <figure>
-    <img style=\"width:240px\" src=\"http://www.issflyby.com/iss.jpg\">
-  </figure>
-  <section>
-  #{self.spacecraft.name} flyby coming up #{local_risetime.strftime(" at %I:%M %p")}
-  </section>
-  <footer>ISS Flyby</footer>
-</article>",isBundleCover:true})
+          <figure>
+            <img style=\"width:240px\" src=\"http://www.issflyby.com/iss.jpg\">
+          </figure>
+          <section>
+          #{self.spacecraft.name} flyby coming up #{local_risetime.strftime(" at %I:%M %p")}
+          </section>
+          <footer>ISS Flyby</footer>
+        </article>",isBundleCover:true})
         Card.create(pass_id:self.id,mirror_id:card['id'])
       end
 		end
