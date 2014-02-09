@@ -48,6 +48,9 @@ h1{
 }
 h2, h3{ 
   font-size:1.2em;
+  @include media($ipad) {
+    font-size:1.4em;
+  }
 }
 p{
 	font-size:1em;
@@ -228,7 +231,7 @@ li{list-style-type:none;}
   .glasscard{
     @include media($ipad) {
       font-size:1.7em;
-      margin: 1.5em auto 0;
+      margin: 0 auto;
       width:640px*$largemobile-cardscale;
       height: 360px*$largemobile-cardscale;
         p{
@@ -382,5 +385,5 @@ li{list-style-type:none;}
     @include shift(3);
   }
 }
-#interior-container{@include media($ipad) {height:230px;}}
-#interior-wrapper{@include media($ipad) {height:230px;}}
+#interior-container{@include media($ipad) {height:200px;}}
+#interior-wrapper{@include media($ipad) {height:200px;}}
