@@ -359,7 +359,16 @@ li{list-style-type:none;}
     height: 40%;
   }
   @include media($desktop) {
-    height: 40%;
+    height: 35%;
+  }
+  @include media($meddesktop) {
+    height: 60%;
+  }
+  @include media($largedesktop) {
+    height: 60%;
+  }
+  @include media($cinemadisplay) {
+    height: 60%;
   }
 }
 .pass{
@@ -394,9 +403,11 @@ li{list-style-type:none;}
     @include shift(2);
   }
   @include media($desktop) {
-    @include span-columns(6);
-    @include shift(3);
+    @include span-columns(4);
+    @include shift(4);
   }
 }
-#interior-container{@include media($ipad) {height:200px;}}
-#interior-wrapper{@include media($ipad) {height:200px;}}
+#interior-container, #interior-wrapper{
+  @include media($ipad) {height:200px;}
+  @include media($desktop) {height:200px;}
+}
