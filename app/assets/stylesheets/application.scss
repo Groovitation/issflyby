@@ -18,6 +18,7 @@ body{
 	@include outer-container;
 	background-image: url(san_rafael.jpg);
 	background-size: cover;
+  background-attachment: fixed;
  	color: #fff;
 }
 img{
@@ -414,4 +415,6 @@ li{list-style-type:none;}
 .contentbox{
   padding:1em;
   background-color: transparentize(black, 0.8);
+
 }
+.pressimage{@include span-columns(12);}
