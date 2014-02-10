@@ -411,3 +411,7 @@ li{list-style-type:none;}
   @include media($ipad) {height:200px;}
   @include media($desktop) {height:200px;}
 }
+.contentbox{
+  padding:1em;
+  background-color: transparentize(black, 0.8);
+}
