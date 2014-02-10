@@ -13,13 +13,14 @@ $ipad-cardscale:0.8;
 $desktop-cardscale:1;
 $largedesktop-cardscale:1;
 
-html, body { height: 100%; width: 100%; margin: 0; }
+html, body { height: 100%; width: 100%; margin: 0; overflow-x: hidden; }
 body{
 	@include outer-container;
 	background-image: url(san_rafael.jpg);
 	background-size: cover;
   background-attachment: fixed;
  	color: #fff;
+  
 }
 img{
     max-width: 100%;
