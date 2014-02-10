@@ -59,7 +59,7 @@ p{
 }
 a{font-family: 'Open Sans', sans-serif;  text-decoration: none !important; }
 li{list-style-type:none;}
-
+footer{@include span-columns(12);}
 #appheader{text-align: center; margin:0.3em 0 0.2em;}
 #iss{
 	height: 5px; 
@@ -417,6 +417,10 @@ li{list-style-type:none;}
   margin:0.5em;
   padding: 0.5em;
   background-color: transparentize(black, 0.8);
+
   a{color:$spacered; text-decoration: underline;}
 }
-.pressimage{@include span-columns(12);}
+.pressimage{
+  @include span-columns(12);
+}
+ .largeimage{margin:0.25em 0;}
