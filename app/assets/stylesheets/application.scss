@@ -20,7 +20,7 @@ body{
 	background-size: cover;
   background-attachment: fixed;
  	color: #fff;
-  
+
 }
 img{
     max-width: 100%;
@@ -414,7 +414,8 @@ li{list-style-type:none;}
   @include media($desktop) {height:200px;}
 }
 .contentbox{
-  padding:1em;
+  margin:0.5em;
+  padding: 0.5em;
   background-color: transparentize(black, 0.8);
 
 }
