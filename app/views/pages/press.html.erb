@@ -1,18 +1,26 @@
 <h1 id="appheader">ISS Flyby</h1>
 <section class="contentbox">
-  <h2>The Project</h2>
+  <h2>Background information</h2>
   <%= image_tag("nexus4.png", class: "pressimage") %>
   <p>The goal of ISS Flyby is to build a unique Google Glass application in a limited timeframe. The overall development time from start to launch was roughly 15 evenings. The project is entirely open source under an MIT license, and we encourage code contributions, suggestions, and bug reports on Github. (<a href="https://github.com/mkbehbehani/issflyby.git">Link</a>)
   </p>
   <p>
   <%= image_tag("ipad.png", class: "pressimage") %>
-  Once a user authorizes ISS Flyby, it begins to periodically request Glass' location. We use the Google Glass Mirror API, which greatly assisted development and allows the application to exist entirely on the web. ISS Flyby connects to external API's for ISS pass times and information about who's on board, and compares it against sunrise, sunset and cloud coverage to notify the user only when the ISS will be visible as a very bright star overhead reflecting the sun's light to the viewer.
+  Once a user authorizes ISS Flyby, it begins to periodically request Glass' location. We use the Google Glass Mirror API, which greatly assists development and allows the application to exist entirely on the web. ISS Flyby connects to external API's for ISS pass times and information about who's on board, and compares it against sunrise, sunset and cloud coverage to notify the user only when the ISS will be visible as a very bright star overhead reflecting the sun's light to the viewer.
   </p>
   When a visible ISS pass is about 15 minutes away the user is sent a card to allow time to notify others around them. The user can optionally tap on the card to view a list of all astronauts currently on board the space station.
   <%= image_tag("nexus4_side.png", class: "pressimage") %>
   <p>
   From the website at issflyby.com, users can view upcoming flybys, their durations and dates, and send themselves demo cards at any time. The ISS Flyby website is fully responsive, and works on mobile, tablet and desktop.
   </p>
+  <%= image_tag("sample_cards/iss_sample_card.png", class: "glasscard") %>
+  <%= image_tag("sample_cards/ryazanskiy_sample_card.png", class: "glasscard") %>
+  <%= image_tag("sample_cards/hopkins_sample_card.png", class: "glasscard") %>
+  <%= image_tag("sample_cards/kotov_sample_card.png", class: "glasscard") %>
+  <%= image_tag("sample_cards/tyurin_sample_card.png", class: "glasscard") %>
+  <%= image_tag("sample_cards/wakata_sample_card.png", class: "glasscard") %>
+  <%= image_tag("sample_cards/mastracchio_sample_card.png", class: "glasscard") %>
+
 
 </section>
 <section class="contentbox">
