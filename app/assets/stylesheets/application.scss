@@ -464,3 +464,8 @@ footer{@include span-columns(12);}
   @include media($largedesktop) { width: 50%;}
   @include media($cinemadisplay) { width: 30%;}
 }
+.downloadbutton{
+  color:#fff !important;
+
+}
+.download{ min-height: 110px;}
