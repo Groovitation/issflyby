@@ -419,8 +419,19 @@ footer{@include span-columns(12);}
   background-color: transparentize(black, 0.8);
 
   a{color:$spacered; text-decoration: underline;}
+  p{margin:0.5em;}
 }
 .pressimage{
-  @include span-columns(12);
+  @include media($smalltablet) {
+    @include span-columns(6);
+    @include shift(3);
+  }
 }
- .largeimage{margin:0.25em 0;}
+.wrap{@include span-columns(12);}
+.largeimage{
+  margin:0.75em 0;
+    @include media($smalltablet) {
+    @include span-columns(6);
+    @include shift(3);
+  }
+}
