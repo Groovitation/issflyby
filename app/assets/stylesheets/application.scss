@@ -424,8 +424,18 @@ footer{@include span-columns(12);}
     @include span-columns(10);
     @include shift(1);
   }
-  @include media($largedesktop) { width: 30%;}
-  @include media($cinemadisplay) { width: 30%;}
+  @include media($meddesktop) {     
+    @include span-columns(10);
+    @include shift(1);
+  }
+    @include media($largedesktop) {     
+    @include span-columns(8);
+    @include shift(2);
+  }
+    @include media($cinemadisplay) {     
+    @include span-columns(8);
+    @include shift(2);
+  }
 }
 .presscard{
   margin: 0.75em auto;
@@ -433,8 +443,8 @@ footer{@include span-columns(12);}
   @include media($ipad) { width: 60%;}
   @include media($desktop) { width: 40%;}
   @include media($meddesktop) { width: 30%;}
-  @include media($largedesktop) { width: 30%;}
-  @include media($cinemadisplay) { width: 30%;}
+  @include media($largedesktop) { width: 50%;}
+  @include media($cinemadisplay) { width: 50%;}
 }
 .wrap{@include span-columns(12);}
 .pressimage{
@@ -442,15 +452,15 @@ footer{@include span-columns(12);}
   width: 90%;
   @include media($ipad) { width: 60%;}
   @include media($desktop) { width: 70%;}
-  @include media($meddesktop) { width: 30%;}
-  @include media($largedesktop) { width: 30%;}
-  @include media($cinemadisplay) { width: 30%;}
+  @include media($meddesktop) { width: 70%;}
+  @include media($largedesktop) { width: 60%;}
+  @include media($cinemadisplay) { width: 60%;}
 }
 .phone{
   width: 50%;
   @include media($ipad) { width: 40%;}
   @include media($desktop) { width: 40%;}
   @include media($meddesktop) { width: 30%;}
-  @include media($largedesktop) { width: 20%;}
-  @include media($cinemadisplay) { width: 20%;}
+  @include media($largedesktop) { width: 50%;}
+  @include media($cinemadisplay) { width: 30%;}
 }
