@@ -342,6 +342,7 @@ footer{@include span-columns(12);}
 .github{
   @include awesomebutton($size:1, $color:#fff, $padding:0.4); 
   padding: 1em 0;
+  width: 95%;
   img{ width:10%;}
 	a{color:$github;}
   @include media($ipad) {
@@ -471,3 +472,15 @@ footer{@include span-columns(12);}
 }
 .download{ min-height: 110px;}
 .center{text-align:center;}
+.pressbutton{
+  @include awesomebutton($size:1, $color:$lightblue, $padding:0.4); 
+  padding: 1.5em 4em;
+  width: 95%;
+  a{color: #fff !important;}
+  @include media($ipad) {
+    margin: 2em 0;
+  }
+  @include media($desktop) {
+    margin: 2em 0;
+  }
+}
