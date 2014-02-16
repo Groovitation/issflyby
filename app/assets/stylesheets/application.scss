@@ -347,9 +347,20 @@ footer{@include span-columns(12);}
 	a{color:$github;}
   @include media($ipad) {
     margin: 2em 0;
+    width: 70%;
   }
   @include media($desktop) {
     margin: 2em 0;
+    width: 70%;
+  }
+  @include media($meddesktop) {
+    width: 50%;
+  }
+  @include media($largedesktop) {
+    width: 50%;
+  }
+  @include media($cinemadisplay) {
+    width: 50%;
   }
 }
 .passes{
@@ -478,9 +489,18 @@ footer{@include span-columns(12);}
   width: 95%;
   a{color: #fff !important;}
   @include media($ipad) {
-    margin: 2em 0;
+    width: 70%;
   }
   @include media($desktop) {
-    margin: 2em 0;
+    width: 70%;
+  }
+  @include media($meddesktop) {
+    width: 50%;
+  }
+  @include media($largedesktop) {
+    width: 50%;
+  }
+  @include media($cinemadisplay) {
+    width: 50%;
   }
 }
