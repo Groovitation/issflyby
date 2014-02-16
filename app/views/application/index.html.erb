@@ -21,7 +21,7 @@
         <% end %>
       </div>
     </div>
-    <%= link_to "Send Demo Card to Glass", demo_card_path, class: "bluebutton offset" %>
+    <%= link_to "Send Demo Card to Glass™", demo_card_path, class: "bluebutton offset" %>
     <br>
        <% unless current_user.passes.count == 0 %>
         <h2 class="offset">Upcoming Flybys:</h2>
@@ -54,7 +54,7 @@
 <div class="swiper-container">
   <div class="swiper-wrapper">
     <div class="swiper-slide swiper-slide-visible">
-    	<div class="description"><p>Get cards to your Google Glass as the ISS approaches.</p></div>
+    	<div class="description"><p>Get notifications to your Google Glass™ as the ISS approaches.</p></div>
 	    <div class="glasscard">
 		    <%= image_tag("iss.jpg") %>
 		    <p>International Space Station flyby coming up <%= @flyby_time.strftime(" at %I:%M %p CST!") %></p>
