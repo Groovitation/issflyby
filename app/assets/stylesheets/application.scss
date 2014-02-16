@@ -383,6 +383,7 @@ footer{@include span-columns(12);}
 
 .bluebutton{
   @include awesomebutton($size:1, $color:$lightblue, $padding:0.4); 
+  img{padding-left:0.3em;vertical-align: middle;}
 }
 .redbutton{
   @include awesomebutton($size:1, $color: $spacered, $padding:0.4); 

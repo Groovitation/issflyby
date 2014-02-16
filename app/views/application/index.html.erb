@@ -21,7 +21,8 @@
         <% end %>
       </div>
     </div>
-    <%= link_to "Send Demo Card to Glass™", demo_card_path, class: "bluebutton offset" %>
+     <a href="/demo_card" class="bluebutton offset">Send Demo Card to Glass™ <%= image_tag("glass_logo_32.png") %></a>
+    
     <br>
        <% unless current_user.passes.count == 0 %>
         <h2 class="offset">Upcoming Flybys:</h2>
