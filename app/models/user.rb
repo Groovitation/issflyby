@@ -45,7 +45,7 @@ class User < ActiveRecord::Base
     card[:bundleId] = "iss_flyby"
     card[:notification] = {level:"DEFAULT"} if ding
     #TODO #30 set up share subscription to handle sharing by users: {action:"SHARE"}
-    card[:menuItems] = [{action:"TOGGLE_PINNED"}]
+    #card[:menuItems] = [{action:"TOGGLE_PINNED"}]
 
     begin
       return HTTParty.post('https://www.googleapis.com/mirror/v1/timeline', body: card.to_json, headers: { 'Content-Type' => 'application/json', 'Authorization' => 'Bearer '+self.access_token })
