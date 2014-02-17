@@ -33,7 +33,7 @@ class Pass < ActiveRecord::Base
         sunrise_comparison = (sunrise.to_f - self.risetime.to_f)
         sunset = SunTimes.new.set(rise_date, self.user.lat, self.user.long)
         sunset_comparison = (self.risetime.to_f - sunset.to_f)
-        unless (sunrise_comparison < 45.minutes && sunrise_comparison > 0) || (sunset_comparison < 45.minutes && sunset_comparison > 0)
+        unless (sunrise_comparison < 30.minutes && sunrise_comparison > 0) || (sunset_comparison < 30.minutes && sunset_comparison > 0)
           return false
         end
 			return true
