@@ -57,9 +57,9 @@ h2, h3{
 p{
 	font-size:1em;
 }
-a{font-family: 'Open Sans', sans-serif;  text-decoration: none !important; color: $spacered;}
+a{font-family: 'Open Sans', sans-serif;  text-decoration: none !important; color: $spacered; }
 li{list-style-type:none;}
-footer{@include span-columns(12); padding: 0.5em 0 0 0;}
+footer{@include span-columns(12); padding: 0.5em 0 0 0; font-size:0.7em;}
 #appheader{text-align: center; margin:0.3em 0 0.2em;}
 #iss{
 	height: 5px; 
