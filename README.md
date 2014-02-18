@@ -2,6 +2,7 @@ ISS Flyby ![My image](https://api.travis-ci.org/Groovitation/issflyby.png)
 ========
 
 **Sends notifications to users' Google Glass shortly before the ISS is visible overhead.**
+![My image](http://www.issflyby.com/nexus4.png)
 ![My image](http://www.issflyby.com/iss_dev.jpg)
 
 www.issflyby.com
