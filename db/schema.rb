@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140127020303) do
+ActiveRecord::Schema.define(version: 20140403033248) do
 
   create_table "cards", force: true do |t|
     t.string   "mirror_id"
@@ -87,6 +87,7 @@ ActiveRecord::Schema.define(version: 20140127020303) do
     t.float    "long"
     t.datetime "last_passes_call"
     t.boolean  "admin"
+    t.datetime "last_demo_card"
   end
 
 end
