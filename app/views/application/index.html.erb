@@ -47,7 +47,7 @@
 			<% end %>
 		<% end %>
         </section>
-    <%= link_to "Sign Out", sign_out_path, class: "redbutton to-bottom offset" %>
+    <%#= link_to "Sign Out", sign_out_path, class: "redbutton to-bottom offset" %>
    
     
 <% else %>
@@ -152,8 +152,7 @@
   </div>
 </div>
 <div class="pagination"></div>
-	<div id="login"><%= link_to 'Log In With Google', sign_in_path, id: 'login_link' %></div>
-	
+    <a id="login" class="center" href="/sign_in"></a>
 <% end %>
 <script>
 var mySwiper = new Swiper('.swiper-container',{
