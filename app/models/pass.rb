@@ -43,7 +43,6 @@ class Pass < ActiveRecord::Base
 	end
 
 	def advance_notify
-		if weather_permits
       self.spacecraft.spacepeople.each do |sp|
         # TODO must be a way to make these html templates... much cleaner and they could then be reused for the splash page sample card
         if card = self.user.send_glass_card({html:"""
@@ -75,7 +74,6 @@ class Pass < ActiveRecord::Base
         </article>', isBundleCover: true}))
         Card.create(pass_id:self.id,mirror_id:card['id'])
       end
-		end
 	end
 end
 #
