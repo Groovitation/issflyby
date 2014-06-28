@@ -61,15 +61,18 @@ class Pass < ActiveRecord::Base
       end
       local_risetime = self.risetime.in_time_zone(self.user.timezone)
 
-      if card = self.user.send_glass_card({html:"<article>
-          <figure>
-            <img style=\"width:240px\" src=\"http://www.issflyby.com/iss.jpg\">
-          </figure>
-          <section>
-          #{self.spacecraft.name} flyby coming up #{local_risetime.strftime(" at %I:%M %p")}
-          </section>
-          <footer>ISS Flyby</footer>
-        </article>",isBundleCover:true})
+      if card = self.user.send_glass_card({html:"
+      <article class="photo">
+        <ul class="mosaic mosaic3">
+        <li style="background-image: url(http://www.issflyby.com/iss.jpg)"></li>
+        <li style="background-image: url(https://mirror-api-playground.appspot.com/links/lincoln.png)"></li>
+        <li style="background-image: url(https://mirror-api-playground.appspot.com/links/obama.jpg)"></li>
+        </ul>
+        <div class="overlay-gradient-tall-dark"/>
+        <section>
+          <p class="text-auto-size">United States Presidents</p>
+        </section>
+      </article>",isBundleCover:true})
         Card.create(pass_id:self.id,mirror_id:card['id'])
       end
 		end
