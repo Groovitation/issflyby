@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   def demo_card
     restriction = 5.minutes
+
+    # clear user's cards to prevent duplicates
+    current_user.passes.destroy_all
+
     if current_user.last_demo_card && (Time.now - current_user.last_demo_card < restriction)
       redirect_to root_url, notice: "You're doing that too much. Wait "+((current_user.last_demo_card + restriction) - Time.now).to_s+"."
     else

@@ -7,9 +7,10 @@ task :check_passes => :environment do
         pass.advance_notify
       end
 
-    # check to see if pass is old
-      if difference < 0
-        pass.destroy
-      end
+    # removal temporarily suspended to assist with approval process
+      # check to see if pass is old
+      #  if difference < 0
+      #    pass.destroy
+      #  end
   end
 end
