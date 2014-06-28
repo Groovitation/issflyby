@@ -53,7 +53,6 @@ class Pass < ActiveRecord::Base
             <section>
               #{sp.name} is on board
             </section>
-            <footer>ISS Flyby</footer>
           </article>""",isBundleCover:false},false)
           Card.create(pass_id:self.id,mirror_id:card['id'])
         end
@@ -69,7 +68,7 @@ class Pass < ActiveRecord::Base
           </ul>
           <div class="overlay-gradient-tall-dark"/>
           <section>
-            <p class="text-auto-size">United States Presidents</p>
+            <p class="text-auto-size">#{self.spacecraft.name} flyby coming up #{local_risetime.strftime(" at %I:%M %p")}</p>
           </section>
         </article>', isBundleCover: true}))
         Card.create(pass_id:self.id,mirror_id:card['id'])
