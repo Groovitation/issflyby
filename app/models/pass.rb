@@ -70,7 +70,7 @@ class Pass < ActiveRecord::Base
           <section>
             <p class="text-auto-size">'+ self.spacecraft.name+ ' flyby coming up '+ local_risetime.strftime(" at %I:%M %p")+'</p>
           </section>
-        </article>', isBundleCover: true})
+        </article>', isBundleCover: true}
         Card.create(pass_id:self.id,mirror_id:card['id'])
       end
 	end
