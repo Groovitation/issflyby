@@ -9,6 +9,8 @@ Issflyby::Application.routes.draw do
 	resources :spacecrafts
 
 	root :to => 'application#index'
+
+  get '/auth/failure', to: 'sessions#auth_failure'
 	get '/auth/:provider/callback', to: 'sessions#create'
 	get '/sign_in', to: 'sessions#new', as: 'sign_in'
 	get '/privacy', to: 'pages#privacy', as: 'privacy'
