@@ -54,7 +54,6 @@ class Pass < ActiveRecord::Base
             <section>
               #{sp.name} is on board
             </section>
-            <footer>ISS Flyby</footer>
           </article>""",isBundleCover:false},false)
           Card.create(pass_id:self.id,mirror_id:card['id'])
         end
