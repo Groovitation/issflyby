@@ -17,3 +17,5 @@ Developer setup
 ---------------------
 
 - Before signing in, create a Google Cloud Console Mirror API app with webapp credentials permitting this endpoint: http://localhost:3000/auth/google_oauth2/callback. Put credentials in config/application.yml per Figaro gem.
+
+_Glass is a trademark of Google Inc._
