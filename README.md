@@ -8,7 +8,7 @@ ISS Flyby ![My image](https://api.travis-ci.org/Groovitation/issflyby.png)
 
 Live at www.issflyby.com
 
-Built by Mashallah Behbehani (https://github.com/mkbehbehani) and Nelson Blaha (https://github.com/nelsonblaha)
+Built by [Mashallah Behbehani](https://github.com/mkbehbehani) and [Nelson Blaha](https://github.com/nelsonblaha)
 
 ISS Flyby is open-source, MIT License. Push the project forward with us by sending pull requests!
 
