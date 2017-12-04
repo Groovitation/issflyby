@@ -1,4 +1,4 @@
-ISS Flyby ![My image](https://api.travis-ci.org/Groovitation/issflyby.png)
+ISS Flyby ![My image](https://api.travis-ci.org/Groovitation/issflyby.png) [![tip for next commit](https://tip4commit.com/projects/348.svg)](https://tip4commit.com/github/Groovitation/issflyby)
 ========
 
 **Sends notifications to users' Google Glass shortly before the ISS is visible overhead.**
