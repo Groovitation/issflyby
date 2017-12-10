@@ -10,7 +10,7 @@ Live at www.issflyby.com.
 
 Built by [Mashallah Behbehani](https://github.com/mkbehbehani) and [Nelson Blaha](https://github.com/nelsonblaha).
 
-ISS Flyby is open-source, [MIT License](LICENSE). Push the project forward with us by sending pull requests!
+ISS Flyby is open-source, [MIT License](LICENSE). Push the project forward with us by [sending pull requests](https://github.com/Groovitation/issflyby/pull/new/master)!
 
 
 Developer setup
